@@ -7,23 +7,23 @@ export default create({
 
   brandTitle: "Ratio UI",
   // brandUrl: "https://example.com",
-  brandImage: "/vite.svg",
+  brandImage: "/ratio.svg",
   brandTarget: "_self",
 
   //
   // colorPrimary: "#ff0000",
-  // colorSecondary: "#585C6D",
+  // colorSecondary: "#ff0000", // Sidebar selected color
 
   // UI
-  // appBg: "#ffffff",
-  // appContentBg: "#ffffff",
-  // appPreviewBg: "#ffffff",
-  // appBorderColor: "#585C6D",
-  // appBorderRadius: 4,
+  appBg: "#0A0A0A",
+  appContentBg: "#262626",
+  // appPreviewBg: "#ff0000",
+  appBorderColor: "#525252",
+  appBorderRadius: 4,
 
   // Text colors
-  // textColor: "#10162F",
-  // textInverseColor: "#ffffff",
+  // textColor: "#ff0000",
+  // textInverseColor: "#ff0000",
 
   // Toolbar default and active colors
   // barTextColor: "#9E9E9E",
