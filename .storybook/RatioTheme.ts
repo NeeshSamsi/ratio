@@ -2,7 +2,7 @@ import { create } from "@storybook/theming"
 
 export default create({
   base: "dark",
-  fontBase: '"Inter", sans-serif',
+  fontBase: '"franklin-gothic-atf", sans-serif',
   // fontCode: 'monospace',
 
   brandTitle: "Ratio UI",
