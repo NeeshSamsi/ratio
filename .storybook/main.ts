@@ -2,9 +2,10 @@ import type { StorybookConfig } from "@storybook/react-vite"
 
 const config: StorybookConfig = {
   stories: [
-    "../src/Welcome.mdx",
-    "../src/VSCO.mdx",
-    "../src/Foundations.mdx",
+    "../src/main/welcome.mdx",
+    "../src/main/vsco.mdx",
+    "../src/main/foundations.mdx",
+    "../src/main/voice-and-tone.mdx",
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
