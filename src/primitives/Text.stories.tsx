@@ -20,6 +20,7 @@ export default {
       },
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 
 type Story = StoryObj<StoryProps>
