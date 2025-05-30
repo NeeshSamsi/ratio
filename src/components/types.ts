@@ -13,6 +13,41 @@ type SpacingKey = {
     : never
 }[keyof typeof rawDesignTokens.spacing]
 
+// Helper function to extract primitive color name from token value
+function getPrimitiveColorName(value: string): string {
+  const match = value.match(/\{primitives\.color\.([^}]+)\}/)
+  return match ? match[1] : value
+}
+
+// Generate types for semantic tokens
+type BackgroundKey = keyof typeof rawDesignTokens.background
+type TextKey = keyof typeof rawDesignTokens.text
+type BorderKey = keyof typeof rawDesignTokens.border
+
+// Background objects
+const Background: Record<BackgroundKey, string> = {} as Record<
+  BackgroundKey,
+  string
+>
+const BackgroundHover: Record<BackgroundKey, string> = {} as Record<
+  BackgroundKey,
+  string
+>
+const BackgroundActive: Record<BackgroundKey, string> = {} as Record<
+  BackgroundKey,
+  string
+>
+
+// Text objects
+const Text: Record<TextKey, string> = {} as Record<TextKey, string>
+const TextHover: Record<TextKey, string> = {} as Record<TextKey, string>
+const TextActive: Record<TextKey, string> = {} as Record<TextKey, string>
+
+// Border objects
+const Border: Record<BorderKey, string> = {} as Record<BorderKey, string>
+const BorderHover: Record<BorderKey, string> = {} as Record<BorderKey, string>
+const BorderActive: Record<BorderKey, string> = {} as Record<BorderKey, string>
+
 // Margin objects
 const Margin: Record<SpacingKey, string> = {} as Record<SpacingKey, string>
 const MarginLeft: Record<SpacingKey, string> = {} as Record<SpacingKey, string>
@@ -78,9 +113,61 @@ function parseSpacing(spacings: Record<string, { value: number }>) {
   }
 }
 
-parseSpacing(rawDesignTokens.spacing)
+function parseSemanticTokens() {
+  // Parse background tokens
+  for (const key in rawDesignTokens.background) {
+    const value = rawDesignTokens.background[key as BackgroundKey].value
+    const colorName = getPrimitiveColorName(value)
+    Background[key as BackgroundKey] = `bg-${colorName}`
 
-export {
+    // Handle hover & active variants if they exist
+    if (key.endsWith("-hover")) {
+      BackgroundHover[key.replace("-hover", "") as BackgroundKey] =
+        `hover:bg-${colorName}`
+    } else if (key.endsWith("-active")) {
+      BackgroundActive[key.replace("-active", "") as BackgroundKey] =
+        `active:bg-${colorName}`
+    }
+  }
+
+  // Parse text tokens
+  for (const key in rawDesignTokens.text) {
+    const value = rawDesignTokens.text[key as TextKey].value
+    const colorName = getPrimitiveColorName(value)
+    Text[key as TextKey] = `text-${colorName}`
+
+    // Handle hover & active variants if they exist
+    if (key.endsWith("-hover")) {
+      TextHover[key.replace("-hover", "") as TextKey] =
+        `hover:text-${colorName}`
+    } else if (key.endsWith("-active")) {
+      TextActive[key.replace("-active", "") as TextKey] =
+        `active:text-${colorName}`
+    }
+  }
+
+  // Parse border tokens
+  for (const key in rawDesignTokens.border) {
+    const value = rawDesignTokens.border[key as BorderKey].value
+    const colorName = getPrimitiveColorName(value)
+    Border[key as BorderKey] = `border-${colorName}`
+
+    // Handle hover & active variants if they exist
+    if (key.endsWith("-hover")) {
+      BorderHover[key.replace("-hover", "") as BorderKey] =
+        `hover:border-${colorName}`
+    } else if (key.endsWith("-active")) {
+      BorderActive[key.replace("-active", "") as BorderKey] =
+        `active:border-${colorName}`
+    }
+  }
+}
+
+parseSpacing(rawDesignTokens.spacing)
+parseSemanticTokens()
+
+// Create a single Tokens object to hold all token objects
+const Tokens = {
   Margin,
   MarginLeft,
   MarginTop,
@@ -96,5 +183,21 @@ export {
   PaddingX,
   PaddingY,
   Gap,
+  Background,
+  BackgroundHover,
+  BackgroundActive,
+  Text,
+  TextHover,
+  TextActive,
+  Border,
+  BorderHover,
+  BorderActive,
+} as const
+
+export {
+  Tokens,
   type SpacingKey,
+  type BackgroundKey,
+  type TextKey,
+  type BorderKey,
 }
