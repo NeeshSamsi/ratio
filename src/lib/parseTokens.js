@@ -14,51 +14,56 @@ const designTokens = {
   radius: {},
 }
 
-function parsePrimitiveColors(colors) {
-  for (const color in colors) {
-    designTokens.color[color] = colors[color].value
-  }
-}
-parsePrimitiveColors(rawPrimitives.color)
+function parseTokens(tokens, target, options = {}) {
+  const {
+    prefix = "",
+    transform = (value) => value,
+    filter = () => true,
+  } = options
 
-const primitivesCssVars = Object.entries(designTokens.color).map(
-  (token) => `\t--color-${token[0]}: ${token[1]};`,
-)
-
-function parseTextSizes(sizes) {
-  for (const size in sizes) {
-    if (!size.startsWith("weight")) {
-      designTokens.textSizes[size] = `${sizes[size].value / 16}rem`
+  for (const key in tokens) {
+    if (filter(key)) {
+      const value = tokens[key].value
+      target[key.replace(prefix, "")] = transform(value)
     }
   }
 }
-parseTextSizes(rawDesignTokens.font)
 
-const textSizesVars = Object.entries(designTokens.textSizes).map(
-  (token) => `\t--text-${token[0]}: ${token[1]};`,
-)
-
-function parseRadii(radii) {
-  for (const radius in radii) {
-    designTokens.radius[radius] = radii[radius].value
-  }
+function generateCssVars(tokens, prefix) {
+  return Object.entries(tokens).map(
+    ([key, value]) => `\t--${prefix}-${key}: ${value};`,
+  )
 }
-parseRadii(rawDesignTokens.radius)
 
-const radiusVars = Object.entries(designTokens.radius).map(
-  (token) => `\t--radius-${token[0]}: ${token[1]};`,
-)
+// Parse colors
+parseTokens(rawPrimitives.color, designTokens.color)
+
+// Parse text sizes (convert to rem)
+parseTokens(rawDesignTokens.font, designTokens.textSizes, {
+  transform: (value) => `${value / 16}rem`,
+  filter: (key) => !key.startsWith("weight"),
+})
+
+// Parse radii
+parseTokens(rawDesignTokens.radius, designTokens.radius)
+
+// Generate CSS variables
+const cssVars = {
+  color: generateCssVars(designTokens.color, "color"),
+  text: generateCssVars(designTokens.textSizes, "text"),
+  radius: generateCssVars(designTokens.radius, "radius"),
+}
 
 const tokensTemplate = `
 @theme {
 \t--color-*: initial;
-${primitivesCssVars.join("\n")}
+${cssVars.color.join("\n")}
 
 \t--text-*: initial;
-${textSizesVars.join("\n")}
+${cssVars.text.join("\n")}
 
 \t--radius-*: initial;
-${radiusVars.join("\n")}
+${cssVars.radius.join("\n")}
 }
 `
 
