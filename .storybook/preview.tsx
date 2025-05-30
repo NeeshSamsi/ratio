@@ -1,6 +1,10 @@
 import type { Preview } from "@storybook/react-vite"
+import type { StoryFn as Story, StoryContext } from "@storybook/react-vite"
 import { themes } from "storybook/theming"
 import "../src/index.css"
+
+import React from "react"
+import ThemeProvider from "../src/components/ThemeProvider"
 
 const preview: Preview = {
   initialGlobals: {
@@ -20,6 +24,16 @@ const preview: Preview = {
     background: {
       default: "#0A0A0A",
     },
+    decorators: [
+      (Story) => ({
+        components: { Story, ThemeProvider },
+        template: (
+          <ThemeProvider>
+            <Story />
+          </ThemeProvider>
+        ),
+      }),
+    ],
 
     a11y: {
       // 'todo' - show a11y violations in the test UI only
@@ -28,6 +42,11 @@ const preview: Preview = {
       test: "todo",
     },
   },
+  decorators: [
+    (Story: Story, context: StoryContext) => (
+      <ThemeProvider>{Story(context.args, context)}</ThemeProvider>
+    ),
+  ],
 }
 
 export default preview
