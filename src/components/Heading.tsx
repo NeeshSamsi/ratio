@@ -13,7 +13,7 @@ type HeadingProps = PropsWithChildren & {
   level: HeadingElement
   displayLevel: HeadingElement
   marginBottom?: SpacingKey
-  center: boolean
+  center?: boolean
   className?: string
 } & Omit<HTMLAttributes<HTMLHeadElement>, "style">
 
@@ -35,7 +35,7 @@ export default function Heading({
   level = "h1",
   displayLevel,
   marginBottom,
-  center,
+  center = false,
   children,
   className,
   ...restProps
