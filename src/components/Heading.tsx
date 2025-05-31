@@ -13,11 +13,12 @@ type HeadingProps = PropsWithChildren & {
   level: HeadingElement
   displayLevel: HeadingElement
   marginBottom?: SpacingKey
+  center: boolean
   className?: string
 } & Omit<HTMLAttributes<HTMLHeadElement>, "style">
 
 const heading = cva({
-  base: "",
+  base: `""`,
   variants: {
     level: {
       h1: `text-size-110 leading-none font-medium ${Tokens.MarginBottom[10]}`,
@@ -34,6 +35,7 @@ export default function Heading({
   level = "h1",
   displayLevel,
   marginBottom,
+  center,
   children,
   className,
   ...restProps
@@ -43,6 +45,7 @@ export default function Heading({
       as={level}
       className={cn(
         heading({ level: displayLevel }),
+        center && "text-center",
         marginBottom && Tokens.MarginBottom[marginBottom],
         className,
       )}
