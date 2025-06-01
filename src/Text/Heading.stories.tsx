@@ -45,5 +45,6 @@ export const Default: Story = {
     children: "Hello, World!",
     level: "h1",
     displayLevel: "h1",
+    center: false,
   },
 }
