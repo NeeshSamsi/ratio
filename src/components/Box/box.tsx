@@ -66,7 +66,7 @@ type PaddingProps = {
 }
 
 type DisplayProps = {
-  display: "none" | "block" | "inline-block" | "flex"
+  display?: "none" | "block" | "inline-block" | "flex"
   flexDirection?: FlexDirectionKey
   flexWrap?: FlexWrapKey
   justifyContent?: JustifyContentKey
