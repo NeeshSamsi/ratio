@@ -54,7 +54,7 @@ const cssVars = {
   radius: generateCssVars(designTokens.radius, "radius"),
 }
 
-const tokensTemplate = `
+const tokensCssTemplate = `
 @theme {
 \t--color-*: initial;
 ${cssVars.color.join("\n")}
@@ -67,8 +67,186 @@ ${cssVars.radius.join("\n")}
 }
 `
 
-fs.writeFileSync(path.join(__dirname, "../", "theme.css"), tokensTemplate)
+// Generate TypeScript type definitions
+function generateTypeDefinitions() {
+  const typeDefinitions = []
 
-// function parseSemanticColors
+  // Helper function to sort keys
+  function sortKeys(keys) {
+    return keys.sort((a, b) => {
+      // Handle arrays (from Object.entries)
+      const keyA = Array.isArray(a) ? a[0] : a
+      const keyB = Array.isArray(b) ? b[0] : b
 
-// console.log(tokensTemplate)
+      // Handle special case for "px"
+      if (keyA === "px") return -1
+      if (keyB === "px") return 1
+
+      // Convert to numbers for numeric comparison
+      const numA = parseFloat(keyA)
+      const numB = parseFloat(keyB)
+
+      // If both are numbers, compare numerically
+      if (!isNaN(numA) && !isNaN(numB)) {
+        return numA - numB
+      }
+
+      // Otherwise compare as strings
+      return String(keyA).localeCompare(String(keyB))
+    })
+  }
+
+  // Generate SpacingKey type
+  const spacingKeys = sortKeys(
+    Object.keys(rawDesignTokens.spacing)
+      .map((key) => key.replace("space-", ""))
+      .map((key) => (key === "0-5" ? "0.5" : key)),
+  )
+    .map((key) => `"${key}"`)
+    .join(" | ")
+
+  typeDefinitions.push(`type SpacingKey = ${spacingKeys};`)
+
+  // Generate BackgroundKey type
+  const backgroundKeys = sortKeys(Object.keys(rawDesignTokens.background))
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type BackgroundKey = ${backgroundKeys};`)
+
+  // Generate TextKey type
+  const textKeys = sortKeys(Object.keys(rawDesignTokens.text))
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type TextKey = ${textKeys};`)
+
+  // Generate BorderKey type
+  const borderKeys = sortKeys(Object.keys(rawDesignTokens.border))
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type BorderKey = ${borderKeys};`)
+
+  // Generate token objects
+  const tokenObjects = []
+
+  // Generate margin objects
+  const marginObjects = {
+    Margin: "m",
+    MarginLeft: "ml",
+    MarginRight: "mr",
+    MarginTop: "mt",
+    MarginBottom: "mb",
+    MarginX: "mx",
+    MarginY: "my",
+  }
+
+  Object.entries(marginObjects).forEach(([objName, prefix]) => {
+    tokenObjects.push(`const ${objName}: Record<SpacingKey, string> = {
+${sortKeys(
+  Object.keys(rawDesignTokens.spacing).map((key) => {
+    const cleanKey = key.replace("space-", "")
+    return cleanKey === "0-5" ? "0.5" : cleanKey
+  }),
+)
+  .map((finalKey) => `  "${finalKey}": "${prefix}-${finalKey}"`)
+  .join(",\n")}
+};`)
+  })
+
+  // Generate padding objects
+  const paddingObjects = {
+    Padding: "p",
+    PaddingLeft: "pl",
+    PaddingRight: "pr",
+    PaddingTop: "pt",
+    PaddingBottom: "pb",
+    PaddingX: "px",
+    PaddingY: "py",
+  }
+
+  Object.entries(paddingObjects).forEach(([objName, prefix]) => {
+    tokenObjects.push(`const ${objName}: Record<SpacingKey, string> = {
+${sortKeys(
+  Object.keys(rawDesignTokens.spacing).map((key) => {
+    const cleanKey = key.replace("space-", "")
+    return cleanKey === "0-5" ? "0.5" : cleanKey
+  }),
+)
+  .map((finalKey) => `  "${finalKey}": "${prefix}-${finalKey}"`)
+  .join(",\n")}
+};`)
+  })
+
+  // Generate background objects
+  tokenObjects.push(`const Background: Record<BackgroundKey, string> = {
+${sortKeys(Object.entries(rawDesignTokens.background))
+  .map(([key, value]) => {
+    const colorName =
+      value.value.match(/\{primitives\.color\.([^}]+)\}/)?.[1] || value.value
+    return `  "${key}": "bg-${colorName}"`
+  })
+  .join(",\n")}
+};`)
+
+  // Generate text objects
+  tokenObjects.push(`const Text: Record<TextKey, string> = {
+${sortKeys(Object.entries(rawDesignTokens.text))
+  .map(([key, value]) => {
+    const colorName =
+      value.value.match(/\{primitives\.color\.([^}]+)\}/)?.[1] || value.value
+    return `  "${key}": "text-${colorName}"`
+  })
+  .join(",\n")}
+};`)
+
+  // Generate border objects
+  tokenObjects.push(`const Border: Record<BorderKey, string> = {
+${sortKeys(Object.entries(rawDesignTokens.border))
+  .map(([key, value]) => {
+    const colorName =
+      value.value.match(/\{primitives\.color\.([^}]+)\}/)?.[1] || value.value
+    return `  "${key}": "border-${colorName}"`
+  })
+  .join(",\n")}
+};`)
+
+  // Combine all type definitions
+  const finalTypeDefinitions = `// Generated TypeScript definitions
+${typeDefinitions.join("\n\n")}
+
+${tokenObjects.join("\n\n")}
+
+export {
+  Margin,
+  MarginLeft,
+  MarginRight,
+  MarginTop,
+  MarginBottom,
+  MarginX,
+  MarginY,
+  Padding,
+  PaddingLeft,
+  PaddingRight,
+  PaddingTop,
+  PaddingBottom,
+  PaddingX,
+  PaddingY,
+  Background,
+  Text,
+  Border,
+  type SpacingKey,
+  type BackgroundKey,
+  type TextKey,
+  type BorderKey,
+};`
+
+  return finalTypeDefinitions
+}
+
+// Write CSS file
+fs.writeFileSync(path.join(__dirname, "../", "theme.css"), tokensCssTemplate)
+
+// Write TypeScript definitions
+fs.writeFileSync(
+  path.join(__dirname, "../", "tokens.d.ts"),
+  generateTypeDefinitions(),
+)
