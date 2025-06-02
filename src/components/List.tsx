@@ -68,6 +68,6 @@ export function UnorderedList({
   return <List type="ul" styleType={variant} {...props} />
 }
 
-export function ListItem({ children }: { children: React.ReactNode }) {
-  return <Box as="li">{children}</Box>
+export function ListItem(props: ComponentPropsWithoutRef<"li">) {
+  return <Box as="li" {...props} />
 }
