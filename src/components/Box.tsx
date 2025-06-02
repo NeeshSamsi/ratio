@@ -13,12 +13,17 @@ const {
 } = Tokens
 
 export type BoxElement =
-  | "div"
   | "span"
-  | "aside"
+  | "div"
+  | "section"
   | "nav"
   | "main"
-  | "section"
+  | "article"
+  | "aside"
+  | "header"
+  | "footer"
+  | "figure"
+  | "figcaption"
   | "ul"
   | "ol"
   | "li"
