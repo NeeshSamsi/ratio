@@ -1,1 +1,1 @@
-export { default } from "./text"
+export { default, type TextElement } from "./text"
