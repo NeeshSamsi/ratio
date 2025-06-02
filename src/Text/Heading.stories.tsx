@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import Heading from "../components/Heading"
-import { Tokens } from "../components/types"
+import { Tokens } from "../tokens"
 
 type StoryProps = ComponentProps<typeof Heading>
 

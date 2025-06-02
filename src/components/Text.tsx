@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactElement } from "react"
-import type { SpacingKey } from "./types"
-import { Tokens } from "./types"
+import { type SpacingKey, Tokens } from "../tokens"
 import { cn } from "../lib/utils"
 
 const {
