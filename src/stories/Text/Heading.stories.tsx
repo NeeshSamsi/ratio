@@ -1,19 +1,25 @@
 import type { ComponentProps } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import Paragraph from "../components/Paragraph"
-import { Tokens } from "../tokens"
+import Heading from "../../components/Heading"
+import { Tokens } from "../../tokens"
 
-type StoryProps = ComponentProps<typeof Paragraph>
+type StoryProps = ComponentProps<typeof Heading>
 
 export default {
-  component: Paragraph,
-  title: "Text/Paragraph",
+  component: Heading,
+  title: "Text/Heading",
   argTypes: {
-    size: {
+    level: {
       control: {
         type: "select",
       },
-      options: ["base", "md", "lg"],
+      options: ["h1", "h2", "h3", "h4", "h5", "h6"],
+    },
+    displayLevel: {
+      control: {
+        type: "select",
+      },
+      options: ["h1", "h2", "h3", "h4", "h5", "h6"],
     },
     marginBottom: {
       control: {
@@ -34,11 +40,11 @@ export default {
 type Story = StoryObj<StoryProps>
 
 export const Default: Story = {
-  render: (props) => <Paragraph {...props} />,
+  render: (props) => <Heading {...props} />,
   args: {
-    children:
-      "We empower photographers to connect with other creatives and businesses with our suite of creative tools that spans from mobile to desktop and across our global community.",
-    size: "base",
+    children: "Hello, World!",
+    level: "h1",
+    displayLevel: "h1",
     center: false,
   },
 }
