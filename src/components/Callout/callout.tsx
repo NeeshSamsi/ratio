@@ -1,14 +1,12 @@
-import type { JSX, PropsWithChildren } from "react"
-import { cva } from "cva"
-import Box from "../Box"
-import { Tokens, type BackgroundKey } from "../../tokens"
-import { CircleAlert, CircleCheck, Info, TriangleAlert } from "lucide-react"
+import type { PropsWithChildren } from "react"
 import { cn } from "../../lib/utils"
+import { cva } from "cva"
+import { IconMap, type Variants } from "../types"
+import { Tokens, type BackgroundKey } from "../../tokens"
+import Box from "../Box"
 import Paragraph from "../Paragraph"
 
 const { Text: TextColor, Background, Border } = Tokens
-
-type Variants = "info" | "success" | "warning" | "critical"
 
 type CalloutProps = PropsWithChildren & {
   variant: Variants
@@ -20,13 +18,6 @@ const ContentBgMap: Record<Variants, BackgroundKey> = {
   success: "success-secondary-weak",
   warning: "warning-secondary-weak",
   critical: "critical-secondary-weak",
-}
-
-const IconMap: Record<Variants, JSX.Element> = {
-  info: <Info />,
-  success: <CircleCheck />,
-  warning: <CircleAlert />,
-  critical: <TriangleAlert />,
 }
 
 const callout = cva({
