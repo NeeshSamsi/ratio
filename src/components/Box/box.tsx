@@ -109,7 +109,7 @@ type BoxProps<T extends ElementType> = {
 export default function Box<T extends ElementType = "div">({
   as,
   children,
-  display = "block",
+  display,
   margin,
   marginLeft,
   marginTop,
@@ -168,7 +168,7 @@ export default function Box<T extends ElementType = "div">({
   return (
     <Tag
       className={cn(
-        display,
+        display && display,
         textAlign && TextAlign[textAlign],
         margin && Margin[margin],
         marginX && MarginX[marginX],
