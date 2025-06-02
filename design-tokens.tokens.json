@@ -833,7 +833,7 @@
       "surface-1": {
         "description": "",
         "type": "color",
-        "value": "{primitives.color.stone-900}",
+        "value": "{primitives.color.stone-950}",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
             "collection": "design-tokens",
