@@ -57,8 +57,6 @@ export default function Text<T extends ElementType = "span">({
     <Tag
       className={cn(
         "",
-        Tokens.Background["surface-1"],
-        Tokens.Text.foreground,
         margin && Margin[margin],
         marginX && MarginX[marginX],
         marginY && MarginY[marginY],
