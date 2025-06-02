@@ -1169,7 +1169,7 @@
       "surface-1-inverse-hover": {
         "description": "",
         "type": "color",
-        "value": "{primitives.color.stone-200}",
+        "value": "{primitives.color.stone-300}",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
             "collection": "design-tokens",
@@ -1306,6 +1306,22 @@
               "SHAPE_FILL"
             ],
             "variableId": "VariableID:611:268",
+            "exportKey": "variables"
+          }
+        }
+      },
+      "surface-2-inverse": {
+        "description": "",
+        "type": "color",
+        "value": "{primitives.color.stone-200}",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "collection": "design-tokens",
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "variableId": "VariableID:807:770",
             "exportKey": "variables"
           }
         }
@@ -1551,25 +1567,10 @@
             "exportKey": "variables"
           }
         }
-      },
-      "foreground 2": {
-        "description": "",
-        "type": "color",
-        "value": "{primitives.color.stone-50}",
-        "extensions": {
-          "org.lukasoppermann.figmaDesignTokens": {
-            "collection": "design-tokens",
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "variableId": "VariableID:611:54",
-            "exportKey": "variables"
-          }
-        }
       }
     },
     "radius": {
-      "rounded": {
+      "md": {
         "type": "dimension",
         "value": 8,
         "extensions": {

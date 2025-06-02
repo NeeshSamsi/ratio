@@ -1,9 +1,9 @@
 // Generated TypeScript definitions
 type SpacingKey = "px" | "0" | "0.5" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "12" | "14" | "16" | "20" | "24" | "28" | "32" | "36" | "40" | "44" | "48" | "52" | "56" | "60" | "64" | "72" | "80" | "96";
 
-type BackgroundKey = "critical" | "critical-active" | "critical-hover" | "critical-secondary" | "critical-secondary-weak" | "primary" | "primary-active" | "primary-disabled" | "primary-hover" | "secondary" | "secondary-active" | "secondary-disabled" | "secondary-hover" | "secondary-weak" | "success" | "success-active" | "success-hover" | "success-secondary" | "success-secondary-weak" | "surface-1" | "surface-1-hover" | "surface-1-inverse" | "surface-1-inverse-hover" | "surface-2" | "surface-2-hover" | "surface-3" | "surface-3-hover" | "warning" | "warning-secondary" | "warning-secondary-weak";
+type BackgroundKey = "critical" | "critical-active" | "critical-hover" | "critical-secondary" | "critical-secondary-weak" | "primary" | "primary-active" | "primary-disabled" | "primary-hover" | "secondary" | "secondary-active" | "secondary-disabled" | "secondary-hover" | "secondary-weak" | "success" | "success-active" | "success-hover" | "success-secondary" | "success-secondary-weak" | "surface-1" | "surface-1-hover" | "surface-1-inverse" | "surface-1-inverse-hover" | "surface-2" | "surface-2-hover" | "surface-2-inverse" | "surface-3" | "surface-3-hover" | "warning" | "warning-secondary" | "warning-secondary-weak";
 
-type TextKey = "critical" | "critical-inverse" | "foreground" | "foreground 2" | "foreground-hover" | "foreground-inverse" | "foreground-inverse-hover" | "primary" | "primary-hover" | "primary-inverse" | "primary-inverse-hover" | "secondary" | "secondary-inverse" | "success" | "success-inverse" | "warning" | "warning-inverse";
+type TextKey = "critical" | "critical-inverse" | "foreground" | "foreground-hover" | "foreground-inverse" | "foreground-inverse-hover" | "primary" | "primary-hover" | "primary-inverse" | "primary-inverse-hover" | "secondary" | "secondary-inverse" | "success" | "success-inverse" | "warning" | "warning-inverse";
 
 type BorderKey = "border-full" | "border-full-hover" | "border-strong" | "border-strong-inverse" | "border-strong-inverse-full" | "border-strong-inverse-full-hover" | "border-weak" | "border-weak-inverse" | "critical" | "critical-inverse" | "primary" | "primary-hover" | "primary-inverse" | "primary-inverse-hover" | "secondary" | "secondary-inverse" | "secondary-weak" | "success" | "success-inverse" | "warning" | "warning-inverse";
 
@@ -812,9 +812,10 @@ const Background: Record<BackgroundKey, string> = {
   "surface-1": "bg-stone-900",
   "surface-1-hover": "bg-stone-900",
   "surface-1-inverse": "bg-stone-50",
-  "surface-1-inverse-hover": "bg-stone-200",
+  "surface-1-inverse-hover": "bg-stone-300",
   "surface-2": "bg-stone-800",
   "surface-2-hover": "bg-stone-700",
+  "surface-2-inverse": "bg-stone-200",
   "surface-3": "bg-stone-600",
   "surface-3-hover": "bg-stone-500",
   "warning": "bg-amber-600",
@@ -845,9 +846,10 @@ const BackgroundHover: Record<BackgroundKey, string> = {
   "surface-1": "hover:bg-stone-900",
   "surface-1-hover": "hover:bg-stone-900",
   "surface-1-inverse": "hover:bg-stone-50",
-  "surface-1-inverse-hover": "hover:bg-stone-200",
+  "surface-1-inverse-hover": "hover:bg-stone-300",
   "surface-2": "hover:bg-stone-800",
   "surface-2-hover": "hover:bg-stone-700",
+  "surface-2-inverse": "hover:bg-stone-200",
   "surface-3": "hover:bg-stone-600",
   "surface-3-hover": "hover:bg-stone-500",
   "warning": "hover:bg-amber-600",
@@ -878,9 +880,10 @@ const BackgroundActive: Record<BackgroundKey, string> = {
   "surface-1": "active:bg-stone-900",
   "surface-1-hover": "active:bg-stone-900",
   "surface-1-inverse": "active:bg-stone-50",
-  "surface-1-inverse-hover": "active:bg-stone-200",
+  "surface-1-inverse-hover": "active:bg-stone-300",
   "surface-2": "active:bg-stone-800",
   "surface-2-hover": "active:bg-stone-700",
+  "surface-2-inverse": "active:bg-stone-200",
   "surface-3": "active:bg-stone-600",
   "surface-3-hover": "active:bg-stone-500",
   "warning": "active:bg-amber-600",
@@ -892,7 +895,6 @@ const Text: Record<TextKey, string> = {
   "critical": "text-ruby-400",
   "critical-inverse": "text-ruby-900",
   "foreground": "text-stone-50",
-  "foreground 2": "text-stone-50",
   "foreground-hover": "text-stone-300",
   "foreground-inverse": "text-stone-950",
   "foreground-inverse-hover": "text-stone-600",
@@ -912,7 +914,6 @@ const TextHover: Record<TextKey, string> = {
   "critical": "hover:text-ruby-400",
   "critical-inverse": "hover:text-ruby-900",
   "foreground": "hover:text-stone-50",
-  "foreground 2": "hover:text-stone-50",
   "foreground-hover": "hover:text-stone-300",
   "foreground-inverse": "hover:text-stone-950",
   "foreground-inverse-hover": "hover:text-stone-600",
@@ -932,7 +933,6 @@ const TextActive: Record<TextKey, string> = {
   "critical": "active:text-ruby-400",
   "critical-inverse": "active:text-ruby-900",
   "foreground": "active:text-stone-50",
-  "foreground 2": "active:text-stone-50",
   "foreground-hover": "active:text-stone-300",
   "foreground-inverse": "active:text-stone-950",
   "foreground-inverse-hover": "active:text-stone-600",
