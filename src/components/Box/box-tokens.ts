@@ -16,6 +16,23 @@ export type BoxElement =
   | "ol"
   | "li"
 
+export type TextAlignKey =
+  | "left"
+  | "center"
+  | "right"
+  | "justify"
+  | "start"
+  | "end"
+
+export const TextAlign: Record<TextAlignKey, string> = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+  start: "text-start",
+  end: "text-end",
+  justify: "text-justify",
+}
+
 export type FlexDirectionKey = "row" | "row-reverse" | "col" | "col-reverse"
 export type FlexWrapKey = "nowrap" | "wrap" | "wrap-reverse"
 export type JustifyContentKey =

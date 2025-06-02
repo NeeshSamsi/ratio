@@ -14,12 +14,14 @@ import type {
   Height,
   MinHeight,
   MaxHeight,
+  TextAlignKey,
 } from "./box-tokens"
 import {
   FlexDirection,
   FlexWrap,
   JustifyContent,
   AlignItems,
+  TextAlign,
 } from "./box-tokens"
 
 const {
@@ -83,12 +85,17 @@ type PositionProps = {
   maxHeight?: MaxHeight
 }
 
+type TypographyProps = {
+  textAlign?: TextAlignKey
+}
+
 type BoxProps<T extends ElementType> = {
   as?: T extends BoxElement ? T : never
 } & MarginProps &
   PaddingProps &
   DisplayProps &
   PositionProps &
+  TypographyProps &
   Omit<ComponentPropsWithoutRef<T>, "style">
 
 export default function Box<T extends ElementType = "div">({
@@ -123,6 +130,7 @@ export default function Box<T extends ElementType = "div">({
   height,
   minHeight,
   maxHeight,
+  textAlign,
   className,
   ...restProps
 }: BoxProps<T>): ReactElement {
@@ -150,6 +158,7 @@ export default function Box<T extends ElementType = "div">({
     <Tag
       className={cn(
         display,
+        textAlign && TextAlign[textAlign],
         margin && Margin[margin],
         marginX && MarginX[marginX],
         marginY && MarginY[marginY],
