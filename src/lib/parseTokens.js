@@ -176,38 +176,74 @@ ${sortKeys(
 };`)
   })
 
+  // Generate gap object
+  tokenObjects.push(`const Gap: Record<SpacingKey, string> = {
+${sortKeys(
+  Object.keys(rawDesignTokens.spacing).map((key) => {
+    const cleanKey = key.replace("space-", "")
+    return cleanKey === "0-5" ? "0.5" : cleanKey
+  }),
+)
+  .map((finalKey) => `  "${finalKey}": "gap-${finalKey}"`)
+  .join(",\n")}
+};`)
+
   // Generate background objects
-  tokenObjects.push(`const Background: Record<BackgroundKey, string> = {
+  const backgroundObjects = {
+    Background: "bg",
+    BackgroundHover: "hover:bg",
+    BackgroundActive: "active:bg",
+  }
+
+  Object.entries(backgroundObjects).forEach(([objName, prefix]) => {
+    tokenObjects.push(`const ${objName}: Record<BackgroundKey, string> = {
 ${sortKeys(Object.entries(rawDesignTokens.background))
   .map(([key, value]) => {
     const colorName =
       value.value.match(/\{primitives\.color\.([^}]+)\}/)?.[1] || value.value
-    return `  "${key}": "bg-${colorName}"`
+    return `  "${key}": "${prefix}-${colorName}"`
   })
   .join(",\n")}
 };`)
+  })
 
   // Generate text objects
-  tokenObjects.push(`const Text: Record<TextKey, string> = {
+  const textObjects = {
+    Text: "text",
+    TextHover: "hover:text",
+    TextActive: "active:text",
+  }
+
+  Object.entries(textObjects).forEach(([objName, prefix]) => {
+    tokenObjects.push(`const ${objName}: Record<TextKey, string> = {
 ${sortKeys(Object.entries(rawDesignTokens.text))
   .map(([key, value]) => {
     const colorName =
       value.value.match(/\{primitives\.color\.([^}]+)\}/)?.[1] || value.value
-    return `  "${key}": "text-${colorName}"`
+    return `  "${key}": "${prefix}-${colorName}"`
   })
   .join(",\n")}
 };`)
+  })
 
   // Generate border objects
-  tokenObjects.push(`const Border: Record<BorderKey, string> = {
+  const borderObjects = {
+    Border: "border",
+    BorderHover: "hover:border",
+    BorderActive: "active:border",
+  }
+
+  Object.entries(borderObjects).forEach(([objName, prefix]) => {
+    tokenObjects.push(`const ${objName}: Record<BorderKey, string> = {
 ${sortKeys(Object.entries(rawDesignTokens.border))
   .map(([key, value]) => {
     const colorName =
       value.value.match(/\{primitives\.color\.([^}]+)\}/)?.[1] || value.value
-    return `  "${key}": "border-${colorName}"`
+    return `  "${key}": "${prefix}-${colorName}"`
   })
   .join(",\n")}
 };`)
+  })
 
   // Combine all type definitions
   const finalTypeDefinitions = `// Generated TypeScript definitions
@@ -215,7 +251,9 @@ ${typeDefinitions.join("\n\n")}
 
 ${tokenObjects.join("\n\n")}
 
-export {
+// Create a single Tokens object to hold all token objects
+const Tokens = {
+  // Spacing tokens
   Margin,
   MarginLeft,
   MarginRight,
@@ -230,9 +268,21 @@ export {
   PaddingBottom,
   PaddingX,
   PaddingY,
+  Gap,
+  // Color tokens
   Background,
+  BackgroundHover,
+  BackgroundActive,
   Text,
+  TextHover,
+  TextActive,
   Border,
+  BorderHover,
+  BorderActive,
+} as const;
+
+export {
+  Tokens,
   type SpacingKey,
   type BackgroundKey,
   type TextKey,
@@ -247,6 +297,6 @@ fs.writeFileSync(path.join(__dirname, "../", "theme.css"), tokensCssTemplate)
 
 // Write TypeScript definitions
 fs.writeFileSync(
-  path.join(__dirname, "../", "tokens.d.ts"),
+  path.join(__dirname, "../", "tokens.ts"),
   generateTypeDefinitions(),
 )
