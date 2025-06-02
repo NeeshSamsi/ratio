@@ -1,6 +1,12 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactElement } from "react"
 import { cn } from "../../lib/utils"
-import { Tokens, type SpacingKey, type BorderKey } from "../../tokens"
+import {
+  Tokens,
+  type SpacingKey,
+  type BorderKey,
+  type BackgroundKey,
+  type TextKey,
+} from "../../tokens"
 import type {
   BoxElement,
   FlexDirectionKey,
@@ -43,6 +49,8 @@ const {
   GapX,
   GapY,
   Border,
+  Background,
+  Text,
 } = Tokens
 
 type MarginProps = {
@@ -98,6 +106,8 @@ type BorderProps = {
 
 type BoxProps<T extends ElementType> = {
   as?: T extends BoxElement ? T : never
+  background?: BackgroundKey
+  color?: TextKey
 } & MarginProps &
   PaddingProps &
   DisplayProps &
@@ -109,6 +119,8 @@ type BoxProps<T extends ElementType> = {
 export default function Box<T extends ElementType = "div">({
   as,
   children,
+  background,
+  color,
   display,
   margin,
   marginLeft,
@@ -168,6 +180,8 @@ export default function Box<T extends ElementType = "div">({
   return (
     <Tag
       className={cn(
+        background && Background[background],
+        color && Text[color],
         display && display,
         textAlign && TextAlign[textAlign],
         margin && Margin[margin],
