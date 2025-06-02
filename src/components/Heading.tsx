@@ -1,21 +1,24 @@
-import type { HTMLAttributes, PropsWithChildren } from "react"
+import type { ComponentPropsWithoutRef } from "react"
 import { cn } from "../lib/utils"
 import { cva } from "cva"
 import Text, { type TextElement } from "./Text"
-import { Tokens, type SpacingKey } from "./types"
+import { Tokens, type SpacingKey } from "../tokens"
 
 type HeadingElement = Extract<
   TextElement,
   "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
 >
 
-type HeadingProps = PropsWithChildren & {
-  level: HeadingElement
-  displayLevel: HeadingElement
-  marginBottom?: SpacingKey
-  center?: boolean
-  className?: string
-} & Omit<HTMLAttributes<HTMLHeadElement>, "style">
+type HeadingProps = Omit<
+  ComponentPropsWithoutRef<HeadingElement> & {
+    level: HeadingElement
+    displayLevel: HeadingElement
+    marginBottom?: SpacingKey
+    center?: boolean
+    className?: string
+  },
+  "style"
+>
 
 const heading = cva({
   base: `""`,
