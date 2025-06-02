@@ -39,6 +39,9 @@ function List({
       {...restProps}
       marginBottom={marginBottom}
       marginLeft={indent}
+      display="flex"
+      flexDirection="col"
+      gap="2"
       className={ListStyleType[styleType]}
     >
       {children}
