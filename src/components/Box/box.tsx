@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactElement } from "react"
 import { cn } from "../../lib/utils"
-import { Tokens, type SpacingKey } from "../../tokens"
+import { Tokens, type SpacingKey, type BorderKey } from "../../tokens"
 import type {
   BoxElement,
   FlexDirectionKey,
@@ -42,6 +42,7 @@ const {
   Gap,
   GapX,
   GapY,
+  Border,
 } = Tokens
 
 type MarginProps = {
@@ -89,6 +90,12 @@ type TypographyProps = {
   textAlign?: TextAlignKey
 }
 
+type BorderProps = {
+  border?: boolean
+  borderColor?: BorderKey
+  borderRadius?: "none" | "md"
+}
+
 type BoxProps<T extends ElementType> = {
   as?: T extends BoxElement ? T : never
 } & MarginProps &
@@ -96,6 +103,7 @@ type BoxProps<T extends ElementType> = {
   DisplayProps &
   PositionProps &
   TypographyProps &
+  BorderProps &
   Omit<ComponentPropsWithoutRef<T>, "style">
 
 export default function Box<T extends ElementType = "div">({
@@ -131,6 +139,9 @@ export default function Box<T extends ElementType = "div">({
   minHeight,
   maxHeight,
   textAlign,
+  border,
+  borderColor,
+  borderRadius,
   className,
   ...restProps
 }: BoxProps<T>): ReactElement {
@@ -187,6 +198,9 @@ export default function Box<T extends ElementType = "div">({
         getDimensionClass(height, "h"),
         getDimensionClass(minHeight, "min-h"),
         getDimensionClass(maxHeight, "max-h"),
+        border && "border",
+        borderColor && Border[borderColor],
+        borderRadius && `rounded-${borderRadius}`,
         className,
       )}
       {...restProps}
