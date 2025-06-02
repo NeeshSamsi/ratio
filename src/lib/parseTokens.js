@@ -45,7 +45,9 @@ parseTokens(rawDesignTokens.font, designTokens.textSizes, {
 })
 
 // Parse radii
-parseTokens(rawDesignTokens.radius, designTokens.radius)
+parseTokens(rawDesignTokens.radius, designTokens.radius, {
+  transform: (value) => `${value}px`,
+})
 
 // Generate CSS variables
 const cssVars = {

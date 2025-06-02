@@ -71,6 +71,6 @@
 	--text-size-110: 4.5rem;
 
 	--radius-*: initial;
-	--radius-md: 8;
-	--radius-none: 0;
+	--radius-md: 8px;
+	--radius-none: 0px;
 }
