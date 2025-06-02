@@ -188,6 +188,29 @@ ${sortKeys(
   .join(",\n")}
 };`)
 
+  // Generate gap-x and gap-y objects
+  tokenObjects.push(`const GapX: Record<SpacingKey, string> = {
+${sortKeys(
+  Object.keys(rawDesignTokens.spacing).map((key) => {
+    const cleanKey = key.replace("space-", "")
+    return cleanKey === "0-5" ? "0.5" : cleanKey
+  }),
+)
+  .map((finalKey) => `  "${finalKey}": "gap-x-${finalKey}"`)
+  .join(",\n")}
+};`)
+
+  tokenObjects.push(`const GapY: Record<SpacingKey, string> = {
+${sortKeys(
+  Object.keys(rawDesignTokens.spacing).map((key) => {
+    const cleanKey = key.replace("space-", "")
+    return cleanKey === "0-5" ? "0.5" : cleanKey
+  }),
+)
+  .map((finalKey) => `  "${finalKey}": "gap-y-${finalKey}"`)
+  .join(",\n")}
+};`)
+
   // Generate background objects
   const backgroundObjects = {
     Background: "bg",
@@ -269,6 +292,8 @@ const Tokens = {
   PaddingX,
   PaddingY,
   Gap,
+  GapX,
+  GapY,
   // Color tokens
   Background,
   BackgroundHover,
@@ -287,6 +312,8 @@ export {
   type BackgroundKey,
   type TextKey,
   type BorderKey,
+  GapX,
+  GapY,
 };`
 
   return finalTypeDefinitions
