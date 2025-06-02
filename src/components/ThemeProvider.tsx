@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from "react"
 import { cn } from "../lib/utils"
-import { Tokens } from "./types"
+import { Tokens } from "../tokens"
 
 export default function ThemeProvider({ children }: PropsWithChildren) {
   return (
