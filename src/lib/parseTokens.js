@@ -211,6 +211,46 @@ ${sortKeys(
   .join(",\n")}
 };`)
 
+  // Generate width objects
+  const widthObjects = {
+    Width: "w",
+    MaxWidth: "max-w",
+    MinWidth: "min-w",
+  }
+
+  Object.entries(widthObjects).forEach(([objName, prefix]) => {
+    tokenObjects.push(`const ${objName}: Record<SpacingKey, string> = {
+${sortKeys(
+  Object.keys(rawDesignTokens.spacing).map((key) => {
+    const cleanKey = key.replace("space-", "")
+    return cleanKey === "0-5" ? "0.5" : cleanKey
+  }),
+)
+  .map((finalKey) => `  "${finalKey}": "${prefix}-${finalKey}"`)
+  .join(",\n")}
+};`)
+  })
+
+  // Generate height objects
+  const heightObjects = {
+    Height: "h",
+    MaxHeight: "max-h",
+    MinHeight: "min-h",
+  }
+
+  Object.entries(heightObjects).forEach(([objName, prefix]) => {
+    tokenObjects.push(`const ${objName}: Record<SpacingKey, string> = {
+${sortKeys(
+  Object.keys(rawDesignTokens.spacing).map((key) => {
+    const cleanKey = key.replace("space-", "")
+    return cleanKey === "0-5" ? "0.5" : cleanKey
+  }),
+)
+  .map((finalKey) => `  "${finalKey}": "${prefix}-${finalKey}"`)
+  .join(",\n")}
+};`)
+  })
+
   // Generate background objects
   const backgroundObjects = {
     Background: "bg",
@@ -294,6 +334,13 @@ const Tokens = {
   Gap,
   GapX,
   GapY,
+  // Size tokens
+  Width,
+  MaxWidth,
+  MinWidth,
+  Height,
+  MaxHeight,
+  MinHeight,
   // Color tokens
   Background,
   BackgroundHover,
