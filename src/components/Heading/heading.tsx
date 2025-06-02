@@ -1,8 +1,8 @@
 import type { ComponentPropsWithoutRef } from "react"
-import { cn } from "../lib/utils"
+import { cn } from "../../lib/utils"
 import { cva } from "cva"
-import Text, { type TextElement } from "./Text"
-import { Tokens, type SpacingKey } from "../tokens"
+import Text, { type TextElement } from "../Text"
+import { Tokens, type SpacingKey } from "../../tokens"
 
 type HeadingElement = Extract<
   TextElement,

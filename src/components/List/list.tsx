@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactElement } from "react"
-import type { SpacingKey } from "../tokens"
-import Box from "./Box"
+import type { SpacingKey } from "../../tokens"
+import Box from "../Box"
 
 type ListElement = "ul" | "ol"
 
