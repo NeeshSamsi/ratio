@@ -36,15 +36,11 @@ type Story = StoryObj<StoryProps>
 export const Default: Story = {
   render: (props) => (
     <UnorderedList {...props}>
-      <ListItem>
-        We empower photographers to connect with other creatives
-      </ListItem>
-      <ListItem>
-        We empower photographers to connect with other creatives
-      </ListItem>
-      <ListItem>
-        We empower photographers to connect with other creatives
-      </ListItem>
+      <ListItem>Rule of thirds</ListItem>
+      <ListItem>Leading lines</ListItem>
+      <ListItem>Foreground interest</ListItem>
+      <ListItem>Selective focus</ListItem>
+      <ListItem>Frame within a frame</ListItem>
     </UnorderedList>
   ),
   args: {

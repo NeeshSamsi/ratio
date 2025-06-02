@@ -42,7 +42,7 @@ type Story = StoryObj<StoryProps>
 export const Default: Story = {
   render: (props) => <Heading {...props} />,
   args: {
-    children: "Hello, World!",
+    children: "Crafted, not curated.",
     level: "h1",
     displayLevel: "h1",
     center: false,

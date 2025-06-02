@@ -28,7 +28,8 @@ type Story = StoryObj<StoryProps>
 export const Default: Story = {
   render: (props) => <Text {...props} />,
   args: {
-    children: "Hello, World!",
+    children:
+      "A space to create without pressure, share without performing and to see the world through your own lens.",
     as: "p",
   },
 }

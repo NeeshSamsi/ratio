@@ -37,7 +37,7 @@ export const Default: Story = {
   render: (props) => <Paragraph {...props} />,
   args: {
     children:
-      "We empower photographers to connect with other creatives and businesses with our suite of creative tools that spans from mobile to desktop and across our global community.",
+      "A space to create without pressure, share without performing and to see the world through your own lens.",
     size: "base",
     center: false,
   },

@@ -46,7 +46,7 @@ type Story = StoryObj<StoryProps>
 export const Default: Story = {
   render: (props) => <Box {...props} />,
   args: {
-    children: "Hello, World!",
+    children: "Create without intention, Express without noise.",
     as: "div",
   },
 }
