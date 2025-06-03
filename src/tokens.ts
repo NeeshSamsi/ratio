@@ -891,6 +891,40 @@ const BackgroundActive: Record<BackgroundKey, string> = {
   "warning-secondary-weak": "active:bg-amber-50"
 };
 
+const BackgroundFocus: Record<BackgroundKey, string> = {
+  "critical": "focus:bg-ruby-700",
+  "critical-active": "focus:bg-ruby-900",
+  "critical-hover": "focus:bg-ruby-800",
+  "critical-secondary": "focus:bg-ruby-200",
+  "critical-secondary-weak": "focus:bg-ruby-100",
+  "primary": "focus:bg-amber-500",
+  "primary-active": "focus:bg-amber-700",
+  "primary-disabled": "focus:bg-amber-100",
+  "primary-hover": "focus:bg-amber-600",
+  "secondary": "focus:bg-sapphire-500",
+  "secondary-active": "focus:bg-sapphire-900",
+  "secondary-disabled": "focus:bg-sapphire-200",
+  "secondary-hover": "focus:bg-sapphire-700",
+  "secondary-weak": "focus:bg-sapphire-400",
+  "success": "focus:bg-emerald-700",
+  "success-active": "focus:bg-emerald-950",
+  "success-hover": "focus:bg-emerald-800",
+  "success-secondary": "focus:bg-emerald-200",
+  "success-secondary-weak": "focus:bg-emerald-100",
+  "surface-1": "focus:bg-stone-950",
+  "surface-1-hover": "focus:bg-stone-900",
+  "surface-1-inverse": "focus:bg-stone-50",
+  "surface-1-inverse-hover": "focus:bg-stone-300",
+  "surface-2": "focus:bg-stone-800",
+  "surface-2-hover": "focus:bg-stone-700",
+  "surface-2-inverse": "focus:bg-stone-200",
+  "surface-3": "focus:bg-stone-600",
+  "surface-3-hover": "focus:bg-stone-500",
+  "warning": "focus:bg-amber-600",
+  "warning-secondary": "focus:bg-amber-100",
+  "warning-secondary-weak": "focus:bg-amber-50"
+};
+
 const Text: Record<TextKey, string> = {
   "critical": "text-ruby-400",
   "critical-inverse": "text-ruby-900",
@@ -946,6 +980,25 @@ const TextActive: Record<TextKey, string> = {
   "success-inverse": "active:text-emerald-900",
   "warning": "active:text-amber-600",
   "warning-inverse": "active:text-amber-800"
+};
+
+const TextFocus: Record<TextKey, string> = {
+  "critical": "focus:text-ruby-400",
+  "critical-inverse": "focus:text-ruby-900",
+  "foreground": "focus:text-stone-50",
+  "foreground-hover": "focus:text-stone-300",
+  "foreground-inverse": "focus:text-stone-950",
+  "foreground-inverse-hover": "focus:text-stone-600",
+  "primary": "focus:text-amber-500",
+  "primary-hover": "focus:text-amber-700",
+  "primary-inverse": "focus:text-amber-800",
+  "primary-inverse-hover": "focus:text-amber-600",
+  "secondary": "focus:text-sapphire-400",
+  "secondary-inverse": "focus:text-sapphire-800",
+  "success": "focus:text-emerald-400",
+  "success-inverse": "focus:text-emerald-900",
+  "warning": "focus:text-amber-600",
+  "warning-inverse": "focus:text-amber-800"
 };
 
 const Border: Record<BorderKey, string> = {
@@ -1051,9 +1104,11 @@ const Tokens = {
   Background,
   BackgroundHover,
   BackgroundActive,
+  BackgroundFocus,
   Text,
   TextHover,
   TextActive,
+  TextFocus,
   Border,
   BorderHover,
   BorderActive,

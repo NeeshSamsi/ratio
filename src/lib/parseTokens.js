@@ -258,6 +258,7 @@ ${sortKeys(
     Background: "bg",
     BackgroundHover: "hover:bg",
     BackgroundActive: "active:bg",
+    BackgroundFocus: "focus:bg",
   }
 
   Object.entries(backgroundObjects).forEach(([objName, prefix]) => {
@@ -277,6 +278,7 @@ ${sortKeys(Object.entries(rawDesignTokens.background))
     Text: "text",
     TextHover: "hover:text",
     TextActive: "active:text",
+    TextFocus: "focus:text",
   }
 
   Object.entries(textObjects).forEach(([objName, prefix]) => {
@@ -347,9 +349,11 @@ const Tokens = {
   Background,
   BackgroundHover,
   BackgroundActive,
+  BackgroundFocus,
   Text,
   TextHover,
   TextActive,
+  TextFocus,
   Border,
   BorderHover,
   BorderActive,
