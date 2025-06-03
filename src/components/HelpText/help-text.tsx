@@ -1,8 +1,8 @@
 import type { PropsWithChildren } from "react"
-import Box from "../Box"
-import Text from "../Text"
-import { VariantIconMap, type Variants } from "../types"
-import { Tokens } from "../../tokens"
+import Box from "@/components/Box"
+import Text from "@/components/Text"
+import { VariantIconMap, type Variants } from "@/components/types"
+import { Tokens } from "@/tokens"
 import { cva } from "cva"
 
 const { Text: TextColor } = Tokens

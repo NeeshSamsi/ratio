@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import HelpText from "../../components/HelpText"
+import HelpText from "@/components/HelpText"
 
 type StoryProps = ComponentProps<typeof HelpText>
 

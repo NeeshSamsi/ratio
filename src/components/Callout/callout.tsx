@@ -1,10 +1,10 @@
 import type { PropsWithChildren } from "react"
-import { cn } from "../../lib/utils"
+import { cn } from "@/lib/utils"
 import { cva } from "cva"
-import { VariantIconMap, type Variants } from "../types"
-import { Tokens, type BackgroundKey } from "../../tokens"
-import Box from "../Box"
-import Paragraph from "../Paragraph"
+import { VariantIconMap, type Variants } from "@/components/types"
+import { Tokens, type BackgroundKey } from "@/tokens"
+import Box from "@/components//Box"
+import Paragraph from "@/components//Paragraph"
 
 const { Text: TextColor, Background, Border } = Tokens
 

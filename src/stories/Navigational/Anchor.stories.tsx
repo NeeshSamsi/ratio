@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import Anchor from "../../components/Anchor"
+import Anchor from "@/components/Anchor"
 
 type StoryProps = ComponentProps<typeof Anchor>
 

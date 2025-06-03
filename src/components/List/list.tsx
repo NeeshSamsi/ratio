@@ -1,15 +1,17 @@
 import type { ComponentPropsWithoutRef, ReactElement } from "react"
-import type { SpacingKey } from "../../tokens"
-import Box from "../Box"
+import type { SpacingKey, TextKey, BackgroundKey } from "@/tokens"
+import Box from "@/components/Box"
 
 type ListElement = "ul" | "ol"
 
-type ListProps = ComponentPropsWithoutRef<ListElement> & {
+type ListProps = Omit<ComponentPropsWithoutRef<ListElement>, "style"> & {
   type: ListElement
   styleType: OrderedListVariant | UnorderedListVariant
   children: ReactElement<typeof ListItem> | ReactElement<typeof ListItem>[]
   marginBottom?: SpacingKey
   indent?: SpacingKey
+  color?: TextKey
+  background?: BackgroundKey
 }
 
 type OrderedListVariant = "decimal" | "lower-alpha" | "lower-roman"
@@ -71,6 +73,22 @@ export function UnorderedList({
   return <List type="ul" styleType={variant} {...props} />
 }
 
-export function ListItem(props: ComponentPropsWithoutRef<"li">) {
-  return <Box as="li" {...props} />
+type ListItemProps = Omit<ComponentPropsWithoutRef<"li">, "style"> & {
+  color?: TextKey
+  background?: BackgroundKey
+}
+
+export function ListItem(props: ListItemProps) {
+  const { className, children, color, background, ...rest } = props
+  return (
+    <Box
+      as="li"
+      className={className}
+      color={color}
+      background={background}
+      {...rest}
+    >
+      {children}
+    </Box>
+  )
 }

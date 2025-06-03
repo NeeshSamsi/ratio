@@ -1,6 +1,6 @@
-import type { SpacingKey } from "../../tokens"
-import Box from "../Box"
-import type { BoxElement } from "../Box/box-tokens"
+import type { SpacingKey } from "@/tokens"
+import Box from "@/components/Box"
+import type { BoxElement } from "@/components/Box/box-tokens"
 
 type StackProps = {
   as?: BoxElement

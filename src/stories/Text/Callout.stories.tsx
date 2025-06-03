@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import Callout from "../../components/Callout"
+import Callout from "@/components/Callout"
 
 type StoryProps = ComponentProps<typeof Callout>
 

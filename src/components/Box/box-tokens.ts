@@ -1,4 +1,4 @@
-import type { SpacingKey } from "../../tokens"
+import type { SpacingKey } from "@/tokens"
 
 export type BoxElement =
   | "span"

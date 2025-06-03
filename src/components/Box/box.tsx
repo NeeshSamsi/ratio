@@ -1,12 +1,12 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactElement } from "react"
-import { cn } from "../../lib/utils"
+import { cn } from "@/lib/utils"
 import {
   Tokens,
   type SpacingKey,
   type BorderKey,
   type BackgroundKey,
   type TextKey,
-} from "../../tokens"
+} from "@/tokens"
 import type {
   BoxElement,
   FlexDirectionKey,

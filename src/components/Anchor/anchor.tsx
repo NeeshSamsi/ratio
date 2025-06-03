@@ -1,7 +1,7 @@
 import { ArrowUpRight, MoveRight, SquareArrowOutUpRight } from "lucide-react"
 import type { ComponentPropsWithoutRef, JSX } from "react"
-import { cn } from "../../lib/utils"
-import { Tokens } from "../../tokens"
+import { cn } from "@/lib/utils"
+import { Tokens } from "@/tokens"
 
 const { Text: TextColor, TextHover } = Tokens
 

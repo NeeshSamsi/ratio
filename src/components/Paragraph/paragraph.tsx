@@ -1,8 +1,8 @@
 import type { ComponentPropsWithoutRef } from "react"
-import { cn } from "../../lib/utils"
+import { cn } from "@/lib/utils"
 import { cva } from "cva"
-import Text from "../Text"
-import { type SpacingKey, Tokens } from "../../tokens"
+import Text from "@/components/Text"
+import { type SpacingKey, Tokens } from "@/tokens"
 
 type HeadingProps = Omit<
   ComponentPropsWithoutRef<"p"> & {

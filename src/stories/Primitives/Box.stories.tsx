@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import type { BoxElement } from "../../components/Box/box-tokens"
-import Box from "../../components/Box"
+import type { BoxElement } from "@/components/Box/box-tokens"
+import Box from "@/components/Box"
 
 const boxElements: BoxElement[] = [
   "span",

@@ -1,4 +1,4 @@
-import { dirname, resolve } from "node:path"
+import path, { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
@@ -8,6 +8,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
