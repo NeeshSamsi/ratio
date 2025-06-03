@@ -30,7 +30,7 @@ export default function HelpText({ variant, children }: HelpTextProps) {
       gap="2"
       className={helpText({ variant })}
     >
-      {IconMap[variant]}
+      <Box width="4">{IconMap[variant]}</Box>
       <Text as="p">{children}</Text>
     </Box>
   )

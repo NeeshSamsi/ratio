@@ -37,8 +37,8 @@ export default function Callout({ variant, title, children }: CalloutProps) {
     <Box
       className={cn(`overflow-hidden rounded-md border`, callout({ variant }))}
     >
-      <Box padding="4" display="flex" gap="4">
-        {IconMap[variant]}
+      <Box padding="4" display="flex" alignItems="center" gap="4">
+        <Box width="6">{IconMap[variant]}</Box>
         <Paragraph size="md" marginBottom="0">
           {title}
         </Paragraph>
