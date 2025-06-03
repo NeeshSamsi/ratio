@@ -43,9 +43,11 @@ export default function Callout({ variant, title, children }: CalloutProps) {
           {title}
         </Paragraph>
       </Box>
-      <Box padding="4" background={ContentBgMap[variant]}>
-        {children}
-      </Box>
+      {children && (
+        <Box padding="4" background={ContentBgMap[variant]}>
+          {children}
+        </Box>
+      )}
     </Box>
   )
 }
