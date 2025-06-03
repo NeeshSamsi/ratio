@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from "react"
 import Box from "../Box"
 import Text from "../Text"
-import { IconMap, type Variants } from "../types"
+import { VariantIconMap, type Variants } from "../types"
 import { Tokens } from "../../tokens"
 import { cva } from "cva"
 
@@ -30,7 +30,7 @@ export default function HelpText({ variant, children }: HelpTextProps) {
       gap="2"
       className={helpText({ variant })}
     >
-      <Box width="4">{IconMap[variant]}</Box>
+      <Box width="4">{VariantIconMap[variant]}</Box>
       <Text as="p">{children}</Text>
     </Box>
   )
