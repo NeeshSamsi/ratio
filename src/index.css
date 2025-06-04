@@ -10,6 +10,15 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+a,
+button,
+input,
+textarea,
+select,
+details {
+  @apply rounded-md outline-offset-4 focus-visible:outline-2 focus-visible:outline-amber-200;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
