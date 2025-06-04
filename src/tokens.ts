@@ -1,11 +1,29 @@
 // Generated TypeScript definitions
 type SpacingKey = "px" | "0" | "0.5" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "12" | "14" | "16" | "20" | "24" | "28" | "32" | "36" | "40" | "44" | "48" | "52" | "56" | "60" | "64" | "72" | "80" | "96";
 
-type BackgroundKey = "critical" | "critical-active" | "critical-hover" | "critical-secondary" | "critical-secondary-weak" | "informational" | "informational-active" | "informational-disabled" | "informational-hover" | "informational-weak" | "primary" | "primary-active" | "primary-disabled" | "primary-hover" | "primary-weak" | "success" | "success-active" | "success-hover" | "success-secondary" | "success-secondary-weak" | "surface-1" | "surface-1-hover" | "surface-1-inverse" | "surface-1-inverse-hover" | "surface-2" | "surface-2-hover" | "surface-2-inverse" | "surface-3" | "surface-3-hover" | "warning" | "warning-secondary" | "warning-secondary-weak";
+type BackgroundKey = "critical" | "critical-secondary" | "critical-secondary-weak" | "informational" | "informational-weak" | "primary" | "primary-weak" | "success" | "success-secondary" | "success-secondary-weak" | "surface-1" | "surface-1-inverse" | "surface-2" | "surface-2-inverse" | "surface-3" | "warning" | "warning-secondary" | "warning-secondary-weak";
 
-type TextKey = "critical" | "critical-inverse" | "foreground" | "foreground-hover" | "foreground-inverse" | "foreground-inverse-hover" | "primary" | "primary-active" | "primary-disabled" | "primary-hover" | "primary-inverse" | "primary-inverse-hover" | "primary-visited" | "secondary" | "secondary-inverse" | "success" | "success-inverse" | "warning" | "warning-inverse";
+type BackgroundHoverKey = "critical" | "informational" | "primary" | "success" | "surface-1" | "surface-1-inverse" | "surface-2" | "surface-3";
 
-type BorderKey = "border-full" | "border-full-hover" | "border-strong" | "border-strong-inverse" | "border-strong-inverse-full" | "border-strong-inverse-full-hover" | "border-weak" | "border-weak-inverse" | "critical" | "critical-inverse" | "primary" | "primary-active" | "primary-disabled" | "primary-hover" | "primary-inverse" | "primary-inverse-hover" | "secondary" | "secondary-inverse" | "secondary-weak" | "success" | "success-inverse" | "warning" | "warning-inverse";
+type BackgroundActiveKey = "critical" | "informational" | "primary" | "success";
+
+type BackgroundDisabledKey = "informational" | "primary";
+
+type TextKey = "critical" | "critical-inverse" | "foreground" | "foreground-inverse" | "primary" | "primary-inverse" | "secondary" | "secondary-inverse" | "success" | "success-inverse" | "warning" | "warning-inverse";
+
+type TextHoverKey = "foreground" | "foreground-inverse" | "primary" | "primary-inverse";
+
+type TextActiveKey = "primary";
+
+type TextDisabledKey = "primary";
+
+type TextVisitedKey = "primary";
+
+type BorderKey = "border-full" | "border-strong" | "border-strong-inverse" | "border-strong-inverse-full" | "border-weak" | "border-weak-inverse" | "critical" | "critical-inverse" | "primary" | "primary-disabled" | "primary-inverse" | "secondary" | "secondary-inverse" | "secondary-weak" | "success" | "success-inverse" | "warning" | "warning-inverse";
+
+type BorderHoverKey = "border-full" | "border-strong-inverse-full" | "primary" | "primary-inverse";
+
+type BorderActiveKey = "primary";
 
 const Margin: Record<SpacingKey, string> = {
   "px": "m-px",
@@ -791,158 +809,76 @@ const MinHeight: Record<SpacingKey, string> = {
 
 const Background: Record<BackgroundKey, string> = {
   "critical": "bg-ruby-700",
-  "critical-active": "bg-ruby-900",
-  "critical-hover": "bg-ruby-800",
   "critical-secondary": "bg-ruby-200",
   "critical-secondary-weak": "bg-ruby-100",
   "informational": "bg-sapphire-500",
-  "informational-active": "bg-sapphire-900",
-  "informational-disabled": "bg-sapphire-200",
-  "informational-hover": "bg-sapphire-700",
   "informational-weak": "bg-sapphire-200",
   "primary": "bg-amber-500",
-  "primary-active": "bg-amber-700",
-  "primary-disabled": "bg-amber-100",
-  "primary-hover": "bg-amber-600",
   "primary-weak": "bg-amber-300",
   "success": "bg-emerald-700",
-  "success-active": "bg-emerald-950",
-  "success-hover": "bg-emerald-800",
   "success-secondary": "bg-emerald-200",
   "success-secondary-weak": "bg-emerald-100",
   "surface-1": "bg-stone-950",
-  "surface-1-hover": "bg-stone-900",
   "surface-1-inverse": "bg-stone-50",
-  "surface-1-inverse-hover": "bg-stone-300",
   "surface-2": "bg-stone-800",
-  "surface-2-hover": "bg-stone-700",
   "surface-2-inverse": "bg-stone-200",
   "surface-3": "bg-stone-600",
-  "surface-3-hover": "bg-stone-500",
   "warning": "bg-amber-600",
   "warning-secondary": "bg-amber-100",
   "warning-secondary-weak": "bg-amber-50"
 };
 
-const BackgroundHover: Record<BackgroundKey, string> = {
-  "critical": "hover:bg-ruby-700",
-  "critical-active": "hover:bg-ruby-900",
-  "critical-hover": "hover:bg-ruby-800",
-  "critical-secondary": "hover:bg-ruby-200",
-  "critical-secondary-weak": "hover:bg-ruby-100",
-  "informational": "hover:bg-sapphire-500",
-  "informational-active": "hover:bg-sapphire-900",
-  "informational-disabled": "hover:bg-sapphire-200",
-  "informational-hover": "hover:bg-sapphire-700",
-  "informational-weak": "hover:bg-sapphire-200",
-  "primary": "hover:bg-amber-500",
-  "primary-active": "hover:bg-amber-700",
-  "primary-disabled": "hover:bg-amber-100",
-  "primary-hover": "hover:bg-amber-600",
-  "primary-weak": "hover:bg-amber-300",
-  "success": "hover:bg-emerald-700",
-  "success-active": "hover:bg-emerald-950",
-  "success-hover": "hover:bg-emerald-800",
-  "success-secondary": "hover:bg-emerald-200",
-  "success-secondary-weak": "hover:bg-emerald-100",
-  "surface-1": "hover:bg-stone-950",
-  "surface-1-hover": "hover:bg-stone-900",
-  "surface-1-inverse": "hover:bg-stone-50",
-  "surface-1-inverse-hover": "hover:bg-stone-300",
-  "surface-2": "hover:bg-stone-800",
-  "surface-2-hover": "hover:bg-stone-700",
-  "surface-2-inverse": "hover:bg-stone-200",
-  "surface-3": "hover:bg-stone-600",
-  "surface-3-hover": "hover:bg-stone-500",
-  "warning": "hover:bg-amber-600",
-  "warning-secondary": "hover:bg-amber-100",
-  "warning-secondary-weak": "hover:bg-amber-50"
+const BackgroundHover: Record<BackgroundHoverKey, string> = {
+  "critical": "hover:bg-ruby-800",
+  "informational": "hover:bg-sapphire-700",
+  "primary": "hover:bg-amber-600",
+  "success": "hover:bg-emerald-800",
+  "surface-1": "hover:bg-stone-900",
+  "surface-1-inverse": "hover:bg-stone-300",
+  "surface-2": "hover:bg-stone-700",
+  "surface-3": "hover:bg-stone-500"
 };
 
-const BackgroundActive: Record<BackgroundKey, string> = {
-  "critical": "active:bg-ruby-700",
-  "critical-active": "active:bg-ruby-900",
-  "critical-hover": "active:bg-ruby-800",
-  "critical-secondary": "active:bg-ruby-200",
-  "critical-secondary-weak": "active:bg-ruby-100",
-  "informational": "active:bg-sapphire-500",
-  "informational-active": "active:bg-sapphire-900",
-  "informational-disabled": "active:bg-sapphire-200",
-  "informational-hover": "active:bg-sapphire-700",
-  "informational-weak": "active:bg-sapphire-200",
-  "primary": "active:bg-amber-500",
-  "primary-active": "active:bg-amber-700",
-  "primary-disabled": "active:bg-amber-100",
-  "primary-hover": "active:bg-amber-600",
-  "primary-weak": "active:bg-amber-300",
-  "success": "active:bg-emerald-700",
-  "success-active": "active:bg-emerald-950",
-  "success-hover": "active:bg-emerald-800",
-  "success-secondary": "active:bg-emerald-200",
-  "success-secondary-weak": "active:bg-emerald-100",
-  "surface-1": "active:bg-stone-950",
-  "surface-1-hover": "active:bg-stone-900",
-  "surface-1-inverse": "active:bg-stone-50",
-  "surface-1-inverse-hover": "active:bg-stone-300",
-  "surface-2": "active:bg-stone-800",
-  "surface-2-hover": "active:bg-stone-700",
-  "surface-2-inverse": "active:bg-stone-200",
-  "surface-3": "active:bg-stone-600",
-  "surface-3-hover": "active:bg-stone-500",
-  "warning": "active:bg-amber-600",
-  "warning-secondary": "active:bg-amber-100",
-  "warning-secondary-weak": "active:bg-amber-50"
+const BackgroundActive: Record<BackgroundActiveKey, string> = {
+  "critical": "active:bg-ruby-900",
+  "informational": "active:bg-sapphire-900",
+  "primary": "active:bg-amber-700",
+  "success": "active:bg-emerald-950"
 };
 
 const BackgroundFocus: Record<BackgroundKey, string> = {
   "critical": "focus:bg-ruby-700",
-  "critical-active": "focus:bg-ruby-900",
-  "critical-hover": "focus:bg-ruby-800",
   "critical-secondary": "focus:bg-ruby-200",
   "critical-secondary-weak": "focus:bg-ruby-100",
   "informational": "focus:bg-sapphire-500",
-  "informational-active": "focus:bg-sapphire-900",
-  "informational-disabled": "focus:bg-sapphire-200",
-  "informational-hover": "focus:bg-sapphire-700",
   "informational-weak": "focus:bg-sapphire-200",
   "primary": "focus:bg-amber-500",
-  "primary-active": "focus:bg-amber-700",
-  "primary-disabled": "focus:bg-amber-100",
-  "primary-hover": "focus:bg-amber-600",
   "primary-weak": "focus:bg-amber-300",
   "success": "focus:bg-emerald-700",
-  "success-active": "focus:bg-emerald-950",
-  "success-hover": "focus:bg-emerald-800",
   "success-secondary": "focus:bg-emerald-200",
   "success-secondary-weak": "focus:bg-emerald-100",
   "surface-1": "focus:bg-stone-950",
-  "surface-1-hover": "focus:bg-stone-900",
   "surface-1-inverse": "focus:bg-stone-50",
-  "surface-1-inverse-hover": "focus:bg-stone-300",
   "surface-2": "focus:bg-stone-800",
-  "surface-2-hover": "focus:bg-stone-700",
   "surface-2-inverse": "focus:bg-stone-200",
   "surface-3": "focus:bg-stone-600",
-  "surface-3-hover": "focus:bg-stone-500",
   "warning": "focus:bg-amber-600",
   "warning-secondary": "focus:bg-amber-100",
   "warning-secondary-weak": "focus:bg-amber-50"
+};
+
+const BackgroundDisabled: Record<BackgroundDisabledKey, string> = {
+  "informational": "disabled:bg-sapphire-200",
+  "primary": "disabled:bg-amber-100"
 };
 
 const Text: Record<TextKey, string> = {
   "critical": "text-ruby-400",
   "critical-inverse": "text-ruby-900",
   "foreground": "text-stone-50",
-  "foreground-hover": "text-stone-300",
   "foreground-inverse": "text-stone-950",
-  "foreground-inverse-hover": "text-stone-600",
   "primary": "text-amber-500",
-  "primary-active": "text-amber-600",
-  "primary-disabled": "text-amber-800",
-  "primary-hover": "text-amber-700",
   "primary-inverse": "text-amber-800",
-  "primary-inverse-hover": "text-amber-600",
-  "primary-visited": "text-amber-400",
   "secondary": "text-sapphire-400",
   "secondary-inverse": "text-sapphire-900",
   "success": "text-emerald-400",
@@ -951,64 +887,24 @@ const Text: Record<TextKey, string> = {
   "warning-inverse": "text-amber-800"
 };
 
-const TextHover: Record<TextKey, string> = {
-  "critical": "hover:text-ruby-400",
-  "critical-inverse": "hover:text-ruby-900",
-  "foreground": "hover:text-stone-50",
-  "foreground-hover": "hover:text-stone-300",
-  "foreground-inverse": "hover:text-stone-950",
-  "foreground-inverse-hover": "hover:text-stone-600",
-  "primary": "hover:text-amber-500",
-  "primary-active": "hover:text-amber-600",
-  "primary-disabled": "hover:text-amber-800",
-  "primary-hover": "hover:text-amber-700",
-  "primary-inverse": "hover:text-amber-800",
-  "primary-inverse-hover": "hover:text-amber-600",
-  "primary-visited": "hover:text-amber-400",
-  "secondary": "hover:text-sapphire-400",
-  "secondary-inverse": "hover:text-sapphire-900",
-  "success": "hover:text-emerald-400",
-  "success-inverse": "hover:text-emerald-900",
-  "warning": "hover:text-amber-600",
-  "warning-inverse": "hover:text-amber-800"
+const TextHover: Record<TextHoverKey, string> = {
+  "foreground": "hover:text-stone-300",
+  "foreground-inverse": "hover:text-stone-600",
+  "primary": "hover:text-amber-700",
+  "primary-inverse": "hover:text-amber-600"
 };
 
-const TextActive: Record<TextKey, string> = {
-  "critical": "active:text-ruby-400",
-  "critical-inverse": "active:text-ruby-900",
-  "foreground": "active:text-stone-50",
-  "foreground-hover": "active:text-stone-300",
-  "foreground-inverse": "active:text-stone-950",
-  "foreground-inverse-hover": "active:text-stone-600",
-  "primary": "active:text-amber-500",
-  "primary-active": "active:text-amber-600",
-  "primary-disabled": "active:text-amber-800",
-  "primary-hover": "active:text-amber-700",
-  "primary-inverse": "active:text-amber-800",
-  "primary-inverse-hover": "active:text-amber-600",
-  "primary-visited": "active:text-amber-400",
-  "secondary": "active:text-sapphire-400",
-  "secondary-inverse": "active:text-sapphire-900",
-  "success": "active:text-emerald-400",
-  "success-inverse": "active:text-emerald-900",
-  "warning": "active:text-amber-600",
-  "warning-inverse": "active:text-amber-800"
+const TextActive: Record<TextActiveKey, string> = {
+  "primary": "active:text-amber-600"
 };
 
 const TextFocus: Record<TextKey, string> = {
   "critical": "focus:text-ruby-400",
   "critical-inverse": "focus:text-ruby-900",
   "foreground": "focus:text-stone-50",
-  "foreground-hover": "focus:text-stone-300",
   "foreground-inverse": "focus:text-stone-950",
-  "foreground-inverse-hover": "focus:text-stone-600",
   "primary": "focus:text-amber-500",
-  "primary-active": "focus:text-amber-600",
-  "primary-disabled": "focus:text-amber-800",
-  "primary-hover": "focus:text-amber-700",
   "primary-inverse": "focus:text-amber-800",
-  "primary-inverse-hover": "focus:text-amber-600",
-  "primary-visited": "focus:text-amber-400",
   "secondary": "focus:text-sapphire-400",
   "secondary-inverse": "focus:text-sapphire-900",
   "success": "focus:text-emerald-400",
@@ -1017,23 +913,26 @@ const TextFocus: Record<TextKey, string> = {
   "warning-inverse": "focus:text-amber-800"
 };
 
+const TextDisabled: Record<TextDisabledKey, string> = {
+  "primary": "disabled:text-amber-800"
+};
+
+const TextVisited: Record<TextVisitedKey, string> = {
+  "primary": "visited:text-amber-400"
+};
+
 const Border: Record<BorderKey, string> = {
   "border-full": "border-stone-50",
-  "border-full-hover": "border-stone-300",
   "border-strong": "border-stone-200",
   "border-strong-inverse": "border-stone-600",
   "border-strong-inverse-full": "border-stone-950",
-  "border-strong-inverse-full-hover": "border-stone-600",
   "border-weak": "border-stone-500",
   "border-weak-inverse": "border-stone-300",
   "critical": "border-ruby-600",
   "critical-inverse": "border-ruby-900",
   "primary": "border-amber-500",
-  "primary-active": "border-amber-600",
   "primary-disabled": "border-amber-800",
-  "primary-hover": "border-amber-700",
   "primary-inverse": "border-amber-800",
-  "primary-inverse-hover": "border-amber-600",
   "secondary": "border-sapphire-600",
   "secondary-inverse": "border-sapphire-800",
   "secondary-weak": "border-sapphire-300",
@@ -1043,56 +942,15 @@ const Border: Record<BorderKey, string> = {
   "warning-inverse": "border-amber-800"
 };
 
-const BorderHover: Record<BorderKey, string> = {
-  "border-full": "hover:border-stone-50",
-  "border-full-hover": "hover:border-stone-300",
-  "border-strong": "hover:border-stone-200",
-  "border-strong-inverse": "hover:border-stone-600",
-  "border-strong-inverse-full": "hover:border-stone-950",
-  "border-strong-inverse-full-hover": "hover:border-stone-600",
-  "border-weak": "hover:border-stone-500",
-  "border-weak-inverse": "hover:border-stone-300",
-  "critical": "hover:border-ruby-600",
-  "critical-inverse": "hover:border-ruby-900",
-  "primary": "hover:border-amber-500",
-  "primary-active": "hover:border-amber-600",
-  "primary-disabled": "hover:border-amber-800",
-  "primary-hover": "hover:border-amber-700",
-  "primary-inverse": "hover:border-amber-800",
-  "primary-inverse-hover": "hover:border-amber-600",
-  "secondary": "hover:border-sapphire-600",
-  "secondary-inverse": "hover:border-sapphire-800",
-  "secondary-weak": "hover:border-sapphire-300",
-  "success": "hover:border-emerald-600",
-  "success-inverse": "hover:border-emerald-900",
-  "warning": "hover:border-amber-600",
-  "warning-inverse": "hover:border-amber-800"
+const BorderHover: Record<BorderHoverKey, string> = {
+  "border-full": "hover:border-stone-300",
+  "border-strong-inverse-full": "hover:border-stone-600",
+  "primary": "hover:border-amber-700",
+  "primary-inverse": "hover:border-amber-600"
 };
 
-const BorderActive: Record<BorderKey, string> = {
-  "border-full": "active:border-stone-50",
-  "border-full-hover": "active:border-stone-300",
-  "border-strong": "active:border-stone-200",
-  "border-strong-inverse": "active:border-stone-600",
-  "border-strong-inverse-full": "active:border-stone-950",
-  "border-strong-inverse-full-hover": "active:border-stone-600",
-  "border-weak": "active:border-stone-500",
-  "border-weak-inverse": "active:border-stone-300",
-  "critical": "active:border-ruby-600",
-  "critical-inverse": "active:border-ruby-900",
-  "primary": "active:border-amber-500",
-  "primary-active": "active:border-amber-600",
-  "primary-disabled": "active:border-amber-800",
-  "primary-hover": "active:border-amber-700",
-  "primary-inverse": "active:border-amber-800",
-  "primary-inverse-hover": "active:border-amber-600",
-  "secondary": "active:border-sapphire-600",
-  "secondary-inverse": "active:border-sapphire-800",
-  "secondary-weak": "active:border-sapphire-300",
-  "success": "active:border-emerald-600",
-  "success-inverse": "active:border-emerald-900",
-  "warning": "active:border-amber-600",
-  "warning-inverse": "active:border-amber-800"
+const BorderActive: Record<BorderActiveKey, string> = {
+  "primary": "active:border-amber-600"
 };
 
 // Create a single Tokens object to hold all token objects
@@ -1127,10 +985,13 @@ const Tokens = {
   BackgroundHover,
   BackgroundActive,
   BackgroundFocus,
+  BackgroundDisabled,
   Text,
   TextHover,
   TextActive,
   TextFocus,
+  TextDisabled,
+  TextVisited,
   Border,
   BorderHover,
   BorderActive,
@@ -1140,8 +1001,17 @@ export {
   Tokens,
   type SpacingKey,
   type BackgroundKey,
+  type BackgroundHoverKey,
+  type BackgroundActiveKey,
+  type BackgroundDisabledKey,
   type TextKey,
+  type TextHoverKey,
+  type TextActiveKey,
+  type TextDisabledKey,
+  type TextVisitedKey,
   type BorderKey,
+  type BorderHoverKey,
+  type BorderActiveKey,
   GapX,
   GapY,
 };

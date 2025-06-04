@@ -109,23 +109,126 @@ function generateTypeDefinitions() {
 
   typeDefinitions.push(`type SpacingKey = ${spacingKeys};`)
 
-  // Generate BackgroundKey type
-  const backgroundKeys = sortKeys(Object.keys(rawDesignTokens.background))
+  // Generate BackgroundKey type and its variants
+  const baseBackgroundKeys = sortKeys(
+    Object.keys(rawDesignTokens.background).filter(
+      (key) =>
+        !key.endsWith("-hover") &&
+        !key.endsWith("-active") &&
+        !key.endsWith("-disabled"),
+    ),
+  )
     .map((key) => `"${key}"`)
     .join(" | ")
-  typeDefinitions.push(`type BackgroundKey = ${backgroundKeys};`)
+  typeDefinitions.push(`type BackgroundKey = ${baseBackgroundKeys};`)
+
+  const backgroundHoverKeys = sortKeys(
+    Object.keys(rawDesignTokens.background)
+      .filter((key) => key.endsWith("-hover"))
+      .map((key) => key.replace(/-hover$/, "")),
+  )
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type BackgroundHoverKey = ${backgroundHoverKeys};`)
+
+  const backgroundActiveKeys = sortKeys(
+    Object.keys(rawDesignTokens.background)
+      .filter((key) => key.endsWith("-active"))
+      .map((key) => key.replace(/-active$/, "")),
+  )
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type BackgroundActiveKey = ${backgroundActiveKeys};`)
+
+  const backgroundDisabledKeys = sortKeys(
+    Object.keys(rawDesignTokens.background)
+      .filter((key) => key.endsWith("-disabled"))
+      .map((key) => key.replace(/-disabled$/, "")),
+  )
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(
+    `type BackgroundDisabledKey = ${backgroundDisabledKeys};`,
+  )
 
   // Generate TextKey type
-  const textKeys = sortKeys(Object.keys(rawDesignTokens.text))
+  const baseTextKeys = sortKeys(
+    Object.keys(rawDesignTokens.text).filter(
+      (key) =>
+        !key.endsWith("-hover") &&
+        !key.endsWith("-active") &&
+        !key.endsWith("-disabled") &&
+        !key.endsWith("-visited"),
+    ),
+  )
     .map((key) => `"${key}"`)
     .join(" | ")
-  typeDefinitions.push(`type TextKey = ${textKeys};`)
+  typeDefinitions.push(`type TextKey = ${baseTextKeys};`)
 
-  // Generate BorderKey type
-  const borderKeys = sortKeys(Object.keys(rawDesignTokens.border))
+  // Generate state-specific text key types with stripped suffixes
+  const hoverTextKeys = sortKeys(
+    Object.keys(rawDesignTokens.text)
+      .filter((key) => key.endsWith("-hover"))
+      .map((key) => key.replace(/-hover$/, "")),
+  )
     .map((key) => `"${key}"`)
     .join(" | ")
-  typeDefinitions.push(`type BorderKey = ${borderKeys};`)
+  typeDefinitions.push(`type TextHoverKey = ${hoverTextKeys};`)
+
+  const activeTextKeys = sortKeys(
+    Object.keys(rawDesignTokens.text)
+      .filter((key) => key.endsWith("-active"))
+      .map((key) => key.replace(/-active$/, "")),
+  )
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type TextActiveKey = ${activeTextKeys};`)
+
+  const disabledTextKeys = sortKeys(
+    Object.keys(rawDesignTokens.text)
+      .filter((key) => key.endsWith("-disabled"))
+      .map((key) => key.replace(/-disabled$/, "")),
+  )
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type TextDisabledKey = ${disabledTextKeys};`)
+
+  const visitedTextKeys = sortKeys(
+    Object.keys(rawDesignTokens.text)
+      .filter((key) => key.endsWith("-visited"))
+      .map((key) => key.replace(/-visited$/, "")),
+  )
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type TextVisitedKey = ${visitedTextKeys};`)
+
+  // Generate BorderKey type and its variants
+  const baseBorderKeys = sortKeys(
+    Object.keys(rawDesignTokens.border).filter(
+      (key) => !key.endsWith("-hover") && !key.endsWith("-active"),
+    ),
+  )
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type BorderKey = ${baseBorderKeys};`)
+
+  const borderHoverKeys = sortKeys(
+    Object.keys(rawDesignTokens.border)
+      .filter((key) => key.endsWith("-hover"))
+      .map((key) => key.replace(/-hover$/, "")),
+  )
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type BorderHoverKey = ${borderHoverKeys};`)
+
+  const borderActiveKeys = sortKeys(
+    Object.keys(rawDesignTokens.border)
+      .filter((key) => key.endsWith("-active"))
+      .map((key) => key.replace(/-active$/, "")),
+  )
+    .map((key) => `"${key}"`)
+    .join(" | ")
+  typeDefinitions.push(`type BorderActiveKey = ${borderActiveKeys};`)
 
   // Generate token objects
   const tokenObjects = []
@@ -255,19 +358,41 @@ ${sortKeys(
 
   // Generate background objects
   const backgroundObjects = {
-    Background: "bg",
-    BackgroundHover: "hover:bg",
-    BackgroundActive: "active:bg",
-    BackgroundFocus: "focus:bg",
+    Background: { prefix: "bg", type: "BackgroundKey" },
+    BackgroundHover: { prefix: "hover:bg", type: "BackgroundHoverKey" },
+    BackgroundActive: { prefix: "active:bg", type: "BackgroundActiveKey" },
+    BackgroundFocus: { prefix: "focus:bg", type: "BackgroundKey" },
+    BackgroundDisabled: {
+      prefix: "disabled:bg",
+      type: "BackgroundDisabledKey",
+    },
   }
 
-  Object.entries(backgroundObjects).forEach(([objName, prefix]) => {
-    tokenObjects.push(`const ${objName}: Record<BackgroundKey, string> = {
+  Object.entries(backgroundObjects).forEach(([objName, { prefix, type }]) => {
+    tokenObjects.push(`const ${objName}: Record<${type}, string> = {
 ${sortKeys(Object.entries(rawDesignTokens.background))
+  .filter(([key]) => {
+    if (objName === "Background" || objName === "BackgroundFocus") {
+      return (
+        !key.endsWith("-hover") &&
+        !key.endsWith("-active") &&
+        !key.endsWith("-disabled")
+      )
+    }
+    if (objName === "BackgroundHover") return key.endsWith("-hover")
+    if (objName === "BackgroundActive") return key.endsWith("-active")
+    if (objName === "BackgroundDisabled") return key.endsWith("-disabled")
+    return false
+  })
   .map(([key, value]) => {
     const colorName =
       value.value.match(/\{primitives\.color\.([^}]+)\}/)?.[1] || value.value
-    return `  "${key}": "${prefix}-${colorName}"`
+    // Strip the state suffix from the key
+    const cleanKey = key
+      .replace(/-hover$/, "")
+      .replace(/-active$/, "")
+      .replace(/-disabled$/, "")
+    return `  "${cleanKey}": "${prefix}-${colorName}"`
   })
   .join(",\n")}
 };`)
@@ -275,19 +400,42 @@ ${sortKeys(Object.entries(rawDesignTokens.background))
 
   // Generate text objects
   const textObjects = {
-    Text: "text",
-    TextHover: "hover:text",
-    TextActive: "active:text",
-    TextFocus: "focus:text",
+    Text: { prefix: "text", type: "TextKey" },
+    TextHover: { prefix: "hover:text", type: "TextHoverKey" },
+    TextActive: { prefix: "active:text", type: "TextActiveKey" },
+    TextFocus: { prefix: "focus:text", type: "TextKey" },
+    TextDisabled: { prefix: "disabled:text", type: "TextDisabledKey" },
+    TextVisited: { prefix: "visited:text", type: "TextVisitedKey" },
   }
 
-  Object.entries(textObjects).forEach(([objName, prefix]) => {
-    tokenObjects.push(`const ${objName}: Record<TextKey, string> = {
+  Object.entries(textObjects).forEach(([objName, { prefix, type }]) => {
+    tokenObjects.push(`const ${objName}: Record<${type}, string> = {
 ${sortKeys(Object.entries(rawDesignTokens.text))
+  .filter(([key]) => {
+    if (objName === "Text" || objName === "TextFocus") {
+      return (
+        !key.endsWith("-hover") &&
+        !key.endsWith("-active") &&
+        !key.endsWith("-disabled") &&
+        !key.endsWith("-visited")
+      )
+    }
+    if (objName === "TextHover") return key.endsWith("-hover")
+    if (objName === "TextActive") return key.endsWith("-active")
+    if (objName === "TextDisabled") return key.endsWith("-disabled")
+    if (objName === "TextVisited") return key.endsWith("-visited")
+    return false
+  })
   .map(([key, value]) => {
     const colorName =
       value.value.match(/\{primitives\.color\.([^}]+)\}/)?.[1] || value.value
-    return `  "${key}": "${prefix}-${colorName}"`
+    // Strip the state suffix from the key
+    const cleanKey = key
+      .replace(/-hover$/, "")
+      .replace(/-active$/, "")
+      .replace(/-disabled$/, "")
+      .replace(/-visited$/, "")
+    return `  "${cleanKey}": "${prefix}-${colorName}"`
   })
   .join(",\n")}
 };`)
@@ -295,18 +443,28 @@ ${sortKeys(Object.entries(rawDesignTokens.text))
 
   // Generate border objects
   const borderObjects = {
-    Border: "border",
-    BorderHover: "hover:border",
-    BorderActive: "active:border",
+    Border: { prefix: "border", type: "BorderKey" },
+    BorderHover: { prefix: "hover:border", type: "BorderHoverKey" },
+    BorderActive: { prefix: "active:border", type: "BorderActiveKey" },
   }
 
-  Object.entries(borderObjects).forEach(([objName, prefix]) => {
-    tokenObjects.push(`const ${objName}: Record<BorderKey, string> = {
+  Object.entries(borderObjects).forEach(([objName, { prefix, type }]) => {
+    tokenObjects.push(`const ${objName}: Record<${type}, string> = {
 ${sortKeys(Object.entries(rawDesignTokens.border))
+  .filter(([key]) => {
+    if (objName === "Border") {
+      return !key.endsWith("-hover") && !key.endsWith("-active")
+    }
+    if (objName === "BorderHover") return key.endsWith("-hover")
+    if (objName === "BorderActive") return key.endsWith("-active")
+    return false
+  })
   .map(([key, value]) => {
     const colorName =
       value.value.match(/\{primitives\.color\.([^}]+)\}/)?.[1] || value.value
-    return `  "${key}": "${prefix}-${colorName}"`
+    // Strip the state suffix from the key
+    const cleanKey = key.replace(/-hover$/, "").replace(/-active$/, "")
+    return `  "${cleanKey}": "${prefix}-${colorName}"`
   })
   .join(",\n")}
 };`)
@@ -350,10 +508,13 @@ const Tokens = {
   BackgroundHover,
   BackgroundActive,
   BackgroundFocus,
+  BackgroundDisabled,
   Text,
   TextHover,
   TextActive,
   TextFocus,
+  TextDisabled,
+  TextVisited,
   Border,
   BorderHover,
   BorderActive,
@@ -363,8 +524,17 @@ export {
   Tokens,
   type SpacingKey,
   type BackgroundKey,
+  type BackgroundHoverKey,
+  type BackgroundActiveKey,
+  type BackgroundDisabledKey,
   type TextKey,
+  type TextHoverKey,
+  type TextActiveKey,
+  type TextDisabledKey,
+  type TextVisitedKey,
   type BorderKey,
+  type BorderHoverKey,
+  type BorderActiveKey,
   GapX,
   GapY,
 };`
