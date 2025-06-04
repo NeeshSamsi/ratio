@@ -19,9 +19,9 @@ type TextDisabledKey = "primary";
 
 type TextVisitedKey = "primary";
 
-type BorderKey = "border-full" | "border-strong" | "border-strong-inverse" | "border-strong-inverse-full" | "border-weak" | "border-weak-inverse" | "critical" | "critical-inverse" | "primary" | "primary-disabled" | "primary-inverse" | "secondary" | "secondary-inverse" | "secondary-weak" | "success" | "success-inverse" | "warning" | "warning-inverse";
+type BorderKey = "critical" | "critical-inverse" | "full" | "primary" | "primary-disabled" | "primary-inverse" | "secondary" | "secondary-inverse" | "secondary-weak" | "strong" | "strong-inverse" | "strong-inverse-full" | "success" | "success-inverse" | "warning" | "warning-inverse" | "weak" | "weak-inverse";
 
-type BorderHoverKey = "border-full" | "border-strong-inverse-full" | "primary" | "primary-inverse";
+type BorderHoverKey = "full" | "primary" | "primary-inverse" | "strong-inverse-full";
 
 type BorderActiveKey = "primary";
 
@@ -922,31 +922,31 @@ const TextVisited: Record<TextVisitedKey, string> = {
 };
 
 const Border: Record<BorderKey, string> = {
-  "border-full": "border-stone-50",
-  "border-strong": "border-stone-200",
-  "border-strong-inverse": "border-stone-600",
-  "border-strong-inverse-full": "border-stone-950",
-  "border-weak": "border-stone-500",
-  "border-weak-inverse": "border-stone-300",
   "critical": "border-ruby-600",
   "critical-inverse": "border-ruby-900",
+  "full": "border-stone-50",
   "primary": "border-amber-500",
   "primary-disabled": "border-amber-800",
   "primary-inverse": "border-amber-800",
   "secondary": "border-sapphire-600",
   "secondary-inverse": "border-sapphire-800",
   "secondary-weak": "border-sapphire-300",
+  "strong": "border-stone-200",
+  "strong-inverse": "border-stone-600",
+  "strong-inverse-full": "border-stone-950",
   "success": "border-emerald-600",
   "success-inverse": "border-emerald-900",
   "warning": "border-amber-600",
-  "warning-inverse": "border-amber-800"
+  "warning-inverse": "border-amber-800",
+  "weak": "border-stone-500",
+  "weak-inverse": "border-stone-300"
 };
 
 const BorderHover: Record<BorderHoverKey, string> = {
-  "border-full": "hover:border-stone-300",
-  "border-strong-inverse-full": "hover:border-stone-600",
+  "full": "hover:border-stone-300",
   "primary": "hover:border-amber-700",
-  "primary-inverse": "hover:border-amber-600"
+  "primary-inverse": "hover:border-amber-600",
+  "strong-inverse-full": "hover:border-stone-600"
 };
 
 const BorderActive: Record<BorderActiveKey, string> = {

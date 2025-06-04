@@ -2283,7 +2283,7 @@
       }
     },
     "border": {
-      "border-strong": {
+      "strong": {
         "description": "",
         "type": "color",
         "value": "{primitives.color.stone-200}",
@@ -2298,7 +2298,7 @@
           }
         }
       },
-      "border-weak": {
+      "weak": {
         "description": "",
         "type": "color",
         "value": "{primitives.color.stone-500}",
@@ -2313,7 +2313,7 @@
           }
         }
       },
-      "border-weak-inverse": {
+      "weak-inverse": {
         "description": "",
         "type": "color",
         "value": "{primitives.color.stone-300}",
@@ -2328,7 +2328,7 @@
           }
         }
       },
-      "border-strong-inverse": {
+      "strong-inverse": {
         "description": "",
         "type": "color",
         "value": "{primitives.color.stone-600}",
@@ -2463,7 +2463,7 @@
           }
         }
       },
-      "border-full": {
+      "full": {
         "description": "",
         "type": "color",
         "value": "{primitives.color.stone-50}",
@@ -2478,7 +2478,7 @@
           }
         }
       },
-      "border-full-hover": {
+      "full-hover": {
         "description": "",
         "type": "color",
         "value": "{primitives.color.stone-300}",
@@ -2493,7 +2493,7 @@
           }
         }
       },
-      "border-strong-inverse-full": {
+      "strong-inverse-full": {
         "description": "",
         "type": "color",
         "value": "{primitives.color.stone-950}",
@@ -2508,7 +2508,7 @@
           }
         }
       },
-      "border-strong-inverse-full-hover": {
+      "strong-inverse-full-hover": {
         "description": "",
         "type": "color",
         "value": "{primitives.color.stone-600}",
@@ -2813,7 +2813,7 @@
         }
       }
     },
-    "border-weight": {
+    "border-width": {
       "weight 1": {
         "type": "dimension",
         "value": 1,
