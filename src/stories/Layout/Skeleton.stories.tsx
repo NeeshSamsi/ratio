@@ -6,7 +6,7 @@ type StoryProps = ComponentProps<typeof Skeleton>
 
 export default {
   component: Skeleton,
-  title: "Display/Skeleton",
+  title: "Layout/Skeleton",
   argTypes: {
     width: {
       control: "text",

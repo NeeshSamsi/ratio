@@ -24,7 +24,7 @@ type StoryProps = ComponentProps<typeof Stack>
 
 export default {
   component: Stack,
-  title: "Display/Stack",
+  title: "Layout/Stack",
   argTypes: {
     as: {
       control: {
