@@ -14,7 +14,7 @@ type CalloutProps = PropsWithChildren & {
 }
 
 const ContentBgMap: Record<Variants, BackgroundKey> = {
-  info: "secondary-weak",
+  info: "informational-weak",
   success: "success-secondary-weak",
   warning: "warning-secondary-weak",
   critical: "critical-secondary-weak",
@@ -24,7 +24,7 @@ const callout = cva({
   base: ``,
   variants: {
     variant: {
-      info: `${Background.secondary} ${TextColor.foreground} ${Border["secondary-weak"]}`,
+      info: `${Background.informational} ${TextColor.foreground} ${Border["secondary-weak"]}`,
       success: `${Background["success-secondary"]} ${TextColor["success-inverse"]} ${Border["success-inverse"]}`,
       warning: `${Background["warning-secondary"]} ${TextColor["warning-inverse"]} ${Border["primary-inverse"]}`,
       critical: `${Background["critical-secondary"]} ${TextColor["critical-inverse"]} ${Border["critical-inverse"]}`,

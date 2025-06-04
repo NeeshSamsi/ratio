@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef, JSX } from "react"
 import { cn } from "@/lib/utils"
 import { Tokens } from "@/tokens"
 
-const { Text: TextColor, TextHover } = Tokens
+const { Text: TextColor, TextHover, TextActive } = Tokens
 
 type Icons = "arrow-right" | "arrow-top-right"
 
@@ -39,7 +39,8 @@ export default function Anchor({
       className={cn(
         "flex w-fit items-center gap-2 underline transition-colors",
         TextColor.foreground,
-        TextHover["primary-hover"],
+        TextHover["primary"],
+        TextActive["primary"],
         {
           "text-size-30": size === "base",
           "text-size-40": size === "md",

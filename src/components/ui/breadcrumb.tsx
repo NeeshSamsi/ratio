@@ -64,7 +64,7 @@ function BreadcrumbLink({
       data-slot="breadcrumb-link"
       className={cn(
         "transition-colors hover:underline",
-        TextHover["primary-hover"],
+        TextHover["primary"],
         className,
       )}
       {...props}
@@ -95,7 +95,7 @@ function BreadcrumbSeparator({
       data-slot="breadcrumb-separator"
       role="presentation"
       aria-hidden="true"
-      className={cn("[&>svg]:size-3.5", Text["foreground-hover"], className)}
+      className={cn("[&>svg]:size-3.5", Text["foreground"], className)}
       {...props}
     >
       {children ?? <ChevronRight />}
