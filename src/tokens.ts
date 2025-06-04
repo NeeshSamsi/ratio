@@ -19,7 +19,7 @@ type TextDisabledKey = "primary";
 
 type TextVisitedKey = "primary";
 
-type BorderKey = "critical" | "critical-inverse" | "full" | "primary" | "primary-disabled" | "primary-inverse" | "secondary" | "secondary-inverse" | "secondary-weak" | "strong" | "strong-inverse" | "strong-inverse-full" | "success" | "success-inverse" | "warning" | "warning-inverse" | "weak" | "weak-inverse";
+type BorderKey = "critical" | "critical-inverse" | "full" | "primary" | "primary-disabled" | "primary-focused" | "primary-inverse" | "secondary" | "secondary-inverse" | "secondary-weak" | "strong" | "strong-inverse" | "strong-inverse-full" | "success" | "success-inverse" | "warning" | "warning-inverse" | "weak" | "weak-inverse";
 
 type BorderHoverKey = "full" | "primary" | "primary-inverse" | "strong-inverse-full";
 
@@ -927,6 +927,7 @@ const Border: Record<BorderKey, string> = {
   "full": "border-stone-50",
   "primary": "border-amber-500",
   "primary-disabled": "border-amber-800",
+  "primary-focused": "border-amber-200",
   "primary-inverse": "border-amber-800",
   "secondary": "border-sapphire-600",
   "secondary-inverse": "border-sapphire-800",

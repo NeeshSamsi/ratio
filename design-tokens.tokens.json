@@ -2627,6 +2627,21 @@
             "exportKey": "variables"
           }
         }
+      },
+      "primary-focused": {
+        "description": "",
+        "type": "color",
+        "value": "{primitives.color.amber-200}",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "collection": "design-tokens",
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "variableId": "VariableID:1381:1493",
+            "exportKey": "variables"
+          }
+        }
       }
     },
     "font": {
@@ -2898,6 +2913,20 @@
               "ALL_SCOPES"
             ],
             "variableId": "VariableID:1269:749",
+            "exportKey": "variables"
+          }
+        }
+      },
+      "disabled-2": {
+        "type": "dimension",
+        "value": 80,
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "collection": "design-tokens",
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "variableId": "VariableID:1385:2990",
             "exportKey": "variables"
           }
         }
