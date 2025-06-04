@@ -2,8 +2,9 @@ import { ArrowUpRight, MoveRight, SquareArrowOutUpRight } from "lucide-react"
 import type { ComponentPropsWithoutRef, JSX } from "react"
 import { cn } from "@/lib/utils"
 import { Tokens } from "@/tokens"
+import clsx from "clsx"
 
-const { Text: TextColor, TextHover, TextActive } = Tokens
+const { Text: TextColor, TextHover, TextActive, TextVisited } = Tokens
 
 type Icons = "arrow-right" | "arrow-top-right"
 
@@ -33,14 +34,18 @@ export default function Anchor({
   external,
   leadingIcon,
 }: AnchorProps) {
+  console.log(TextColor.primary)
+
   return (
     <a
       href={link}
-      className={cn(
+      // cn() aka twMerge mixes up text-clr and text-size classes & overrides theme
+      className={clsx(
+        TextColor.primary,
+        TextHover.primary,
+        TextActive.primary,
+        TextVisited.primary,
         "flex w-fit items-center gap-2 underline transition-colors",
-        TextColor.foreground,
-        TextHover["primary"],
-        TextActive["primary"],
         {
           "text-size-30": size === "base",
           "text-size-40": size === "md",
@@ -56,7 +61,6 @@ export default function Anchor({
           "size-4": size === "base" || size === "md",
           "size-4.5": size === "lg",
         })}
-        // Lucide says to hide decorational icons
         aria-hidden="true"
       >
         {icon && IconMap[icon]}
