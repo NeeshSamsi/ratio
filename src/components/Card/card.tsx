@@ -1,20 +1,27 @@
-import type { PropsWithChildren } from "react"
+import { useEffect, type PropsWithChildren } from "react"
 import type { BackgroundKey } from "@/tokens"
 import type { HeadingProps } from "../Heading/heading"
 import Box from "../Box"
 import Heading from "../Heading"
 import Stack from "../Stack"
+import { CardProvider, useCardContext } from "./card-context"
 
 type CardProps = {
   background: Extract<BackgroundKey, "surface-2" | "surface-3">
-  image?: {
-    src: string
-    alt: string
-  }
   orientation?: "horizontal" | "vertical"
 } & PropsWithChildren
 
-export function Card({ background, image, orientation, children }: CardProps) {
+export function CardNode({
+  background,
+  orientation = "vertical",
+  children,
+}: CardProps) {
+  const { image, title, content, setOrientation } = useCardContext()
+
+  useEffect(() => {
+    setOrientation(orientation)
+  }, [orientation, setOrientation])
+
   return (
     <Box
       background={background}
@@ -22,16 +29,11 @@ export function Card({ background, image, orientation, children }: CardProps) {
       display="flex"
       flexDirection={orientation === "vertical" ? "col" : "row"}
     >
-      {image && (
-        <img
-          src={image.src}
-          alt={image.alt}
-          // Somehow set aspect-ratio
-          className={`object-cover ${orientation === "horizontal" ? "w-2/5" : "w-full"}`}
-        />
-      )}
+      {image}
       <Box padding="10">
         <Stack orientation="vertical" gap="4">
+          {title}
+          {content}
           {children}
         </Stack>
       </Box>
@@ -39,10 +41,57 @@ export function Card({ background, image, orientation, children }: CardProps) {
   )
 }
 
-export function CardTitle(props: Omit<HeadingProps, "marginBottom">) {
-  return <Heading marginBottom="0" {...props} />
+type CardImageProps = {
+  src: string
+  alt: string
+}
+
+export function CardImage({ src, alt }: CardImageProps) {
+  const { orientation, setImage } = useCardContext()
+
+  useEffect(() => {
+    setImage(
+      <img
+        src={src}
+        alt={alt}
+        // Somehow set aspect-ratio
+        className={`object-cover ${orientation === "horizontal" ? "w-2/5" : "w-full"}`}
+      />,
+    )
+  }, [orientation, setImage, src, alt])
+
+  return null
+}
+
+export function CardTitle({
+  children,
+  ...props
+}: Omit<HeadingProps, "marginBottom">) {
+  const { setTitle } = useCardContext()
+  useEffect(() => {
+    setTitle(
+      <Heading marginBottom="0" {...props}>
+        {children}
+      </Heading>,
+    )
+  }, [children, props, setTitle])
+
+  return null
 }
 
 export function CardContent({ children }: PropsWithChildren) {
-  return children
+  const { setContent } = useCardContext()
+  useEffect(() => {
+    setContent(children)
+  }, [children, setContent])
+
+  return null
+}
+
+export function Card(props: CardProps) {
+  return (
+    <CardProvider>
+      <CardNode {...props}></CardNode>
+    </CardProvider>
+  )
 }

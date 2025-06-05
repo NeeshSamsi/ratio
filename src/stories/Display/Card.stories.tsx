@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { Card, CardTitle, CardContent } from "../../components/Card/card"
+import {
+  Card,
+  CardTitle,
+  CardContent,
+  CardImage,
+} from "../../components/Card/card"
 import { Button } from "@/components/ui/button"
 import Paragraph from "@/components/Paragraph"
 
@@ -18,21 +23,6 @@ const meta: Meta<typeof Card> = {
         type: "radio",
       },
       options: ["horizontal", "vertical"],
-    },
-    image: {
-      control: {
-        type: "object",
-        fields: {
-          src: {
-            control: "text",
-            description: "Image source URL",
-          },
-          alt: {
-            control: "text",
-            description: "Image alt text",
-          },
-        },
-      },
     },
     children: {
       table: {
@@ -69,12 +59,12 @@ export const WithImageHorizontal: Story = {
   args: {
     background: "surface-3",
     orientation: "horizontal",
-    image: {
-      src: "https://picsum.photos/400/300",
-      alt: "Random image for horizontal card",
-    },
     children: (
       <>
+        <CardImage
+          src="https://picsum.photos/400/300"
+          alt="Random image for horizontal card"
+        />
         <CardTitle level="h2" displayLevel="h4">
           Card with Horizontal Image
         </CardTitle>
@@ -93,12 +83,12 @@ export const WithImageVertical: Story = {
   args: {
     background: "surface-2",
     orientation: "vertical",
-    image: {
-      src: "https://picsum.photos/400/300",
-      alt: "Random image for vertical card",
-    },
     children: (
       <>
+        <CardImage
+          src="https://picsum.photos/400/300"
+          alt="Random image for vertical card"
+        />
         <CardTitle level="h2" displayLevel="h4">
           Card with Vertical Image
         </CardTitle>
@@ -107,31 +97,6 @@ export const WithImageVertical: Story = {
             This card has an image displayed vertically above the content.
           </Paragraph>
           <Button variant="secondary">Explore</Button>
-        </CardContent>
-      </>
-    ),
-  },
-}
-
-export const ComplexContent: Story = {
-  args: {
-    background: "surface-3",
-    children: (
-      <>
-        <CardTitle level="h2" displayLevel="h4">
-          Complex Card Content
-        </CardTitle>
-        <CardContent>
-          <Paragraph size="base" marginBottom="0">
-            This card demonstrates more complex content structure with multiple
-            elements.
-          </Paragraph>
-          <ul className="my-4">
-            <li>First item</li>
-            <li>Second item</li>
-            <li>Third item</li>
-          </ul>
-          <Button variant="secondary">Get Started</Button>
         </CardContent>
       </>
     ),
