@@ -140,17 +140,6 @@ function generateTypeDefinitions() {
     .join(" | ")
   typeDefinitions.push(`type BackgroundActiveKey = ${backgroundActiveKeys};`)
 
-  const backgroundDisabledKeys = sortKeys(
-    Object.keys(rawDesignTokens.background)
-      .filter((key) => key.endsWith("-disabled"))
-      .map((key) => key.replace(/-disabled$/, "")),
-  )
-    .map((key) => `"${key}"`)
-    .join(" | ")
-  typeDefinitions.push(
-    `type BackgroundDisabledKey = ${backgroundDisabledKeys};`,
-  )
-
   // Generate TextKey type
   const baseTextKeys = sortKeys(
     Object.keys(rawDesignTokens.text).filter(
@@ -183,15 +172,6 @@ function generateTypeDefinitions() {
     .map((key) => `"${key}"`)
     .join(" | ")
   typeDefinitions.push(`type TextActiveKey = ${activeTextKeys};`)
-
-  const disabledTextKeys = sortKeys(
-    Object.keys(rawDesignTokens.text)
-      .filter((key) => key.endsWith("-disabled"))
-      .map((key) => key.replace(/-disabled$/, "")),
-  )
-    .map((key) => `"${key}"`)
-    .join(" | ")
-  typeDefinitions.push(`type TextDisabledKey = ${disabledTextKeys};`)
 
   const visitedTextKeys = sortKeys(
     Object.keys(rawDesignTokens.text)
@@ -362,10 +342,6 @@ ${sortKeys(
     BackgroundHover: { prefix: "hover:bg", type: "BackgroundHoverKey" },
     BackgroundActive: { prefix: "active:bg", type: "BackgroundActiveKey" },
     BackgroundFocus: { prefix: "focus:bg", type: "BackgroundKey" },
-    BackgroundDisabled: {
-      prefix: "disabled:bg",
-      type: "BackgroundDisabledKey",
-    },
   }
 
   Object.entries(backgroundObjects).forEach(([objName, { prefix, type }]) => {
@@ -381,7 +357,6 @@ ${sortKeys(Object.entries(rawDesignTokens.background))
     }
     if (objName === "BackgroundHover") return key.endsWith("-hover")
     if (objName === "BackgroundActive") return key.endsWith("-active")
-    if (objName === "BackgroundDisabled") return key.endsWith("-disabled")
     return false
   })
   .map(([key, value]) => {
@@ -404,7 +379,6 @@ ${sortKeys(Object.entries(rawDesignTokens.background))
     TextHover: { prefix: "hover:text", type: "TextHoverKey" },
     TextActive: { prefix: "active:text", type: "TextActiveKey" },
     TextFocus: { prefix: "focus:text", type: "TextKey" },
-    TextDisabled: { prefix: "disabled:text", type: "TextDisabledKey" },
     TextVisited: { prefix: "visited:text", type: "TextVisitedKey" },
   }
 
@@ -422,7 +396,6 @@ ${sortKeys(Object.entries(rawDesignTokens.text))
     }
     if (objName === "TextHover") return key.endsWith("-hover")
     if (objName === "TextActive") return key.endsWith("-active")
-    if (objName === "TextDisabled") return key.endsWith("-disabled")
     if (objName === "TextVisited") return key.endsWith("-visited")
     return false
   })
@@ -508,12 +481,10 @@ const Tokens = {
   BackgroundHover,
   BackgroundActive,
   BackgroundFocus,
-  BackgroundDisabled,
   Text,
   TextHover,
   TextActive,
   TextFocus,
-  TextDisabled,
   TextVisited,
   Border,
   BorderHover,
@@ -526,11 +497,9 @@ export {
   type BackgroundKey,
   type BackgroundHoverKey,
   type BackgroundActiveKey,
-  type BackgroundDisabledKey,
   type TextKey,
   type TextHoverKey,
   type TextActiveKey,
-  type TextDisabledKey,
   type TextVisitedKey,
   type BorderKey,
   type BorderHoverKey,

@@ -7,15 +7,11 @@ type BackgroundHoverKey = "critical" | "informational" | "primary" | "success" |
 
 type BackgroundActiveKey = "critical" | "informational" | "primary" | "success";
 
-type BackgroundDisabledKey = ;
-
 type TextKey = "critical" | "critical-inverse" | "foreground" | "foreground-inverse" | "informational" | "primary" | "secondary 2" | "success" | "success-inverse" | "text-informational" | "warning" | "warning-inverse";
 
 type TextHoverKey = "foreground" | "foreground-inverse" | "primary";
 
 type TextActiveKey = "primary";
-
-type TextDisabledKey = ;
 
 type TextVisitedKey = "primary";
 
@@ -861,10 +857,6 @@ const BackgroundFocus: Record<BackgroundKey, string> = {
   "warning-secondary": "focus:bg-citrine-200"
 };
 
-const BackgroundDisabled: Record<BackgroundDisabledKey, string> = {
-
-};
-
 const Text: Record<TextKey, string> = {
   "critical": "text-ruby-400",
   "critical-inverse": "text-ruby-900",
@@ -903,10 +895,6 @@ const TextFocus: Record<TextKey, string> = {
   "text-informational": "focus:text-sapphire-900",
   "warning": "focus:text-citrine-400",
   "warning-inverse": "focus:text-citrine-800"
-};
-
-const TextDisabled: Record<TextDisabledKey, string> = {
-
 };
 
 const TextVisited: Record<TextVisitedKey, string> = {
@@ -974,12 +962,10 @@ const Tokens = {
   BackgroundHover,
   BackgroundActive,
   BackgroundFocus,
-  BackgroundDisabled,
   Text,
   TextHover,
   TextActive,
   TextFocus,
-  TextDisabled,
   TextVisited,
   Border,
   BorderHover,
@@ -992,11 +978,9 @@ export {
   type BackgroundKey,
   type BackgroundHoverKey,
   type BackgroundActiveKey,
-  type BackgroundDisabledKey,
   type TextKey,
   type TextHoverKey,
   type TextActiveKey,
-  type TextDisabledKey,
   type TextVisitedKey,
   type BorderKey,
   type BorderHoverKey,
