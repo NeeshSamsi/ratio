@@ -4,12 +4,15 @@ import { useState, type PropsWithChildren } from "react"
 import { Tokens } from "@/tokens"
 import Box from "../Box"
 import { X } from "lucide-react"
+import { Button } from "../ui/button"
 
 const { Background, Text, Border } = Tokens
 
 type AlertProps = {
   variant: Variants
   dismissible?: boolean
+  actionLabel?: string
+  onAction?: () => void
 } & PropsWithChildren
 
 const alert = cva({
@@ -24,7 +27,12 @@ const alert = cva({
   },
 })
 
-export default function Alert({ variant, children }: AlertProps) {
+export default function Alert({
+  variant,
+  children,
+  actionLabel,
+  onAction,
+}: AlertProps) {
   const [show, setShow] = useState(true)
 
   if (!show) return null
@@ -40,11 +48,18 @@ export default function Alert({ variant, children }: AlertProps) {
     >
       <Box width="8">{VariantIconMap[variant]}</Box>
       <div className="flex-auto">{children}</div>
-      <button onClick={() => setShow(false)}>
-        <Box width="6">
-          <X className="aspect-square h-full w-full" />
-        </Box>
-      </button>
+      <Box display="flex" alignItems="center" gap="3">
+        {actionLabel && onAction && (
+          <Button variant="secondary" onClick={onAction}>
+            {actionLabel}
+          </Button>
+        )}
+        <button onClick={() => setShow(false)}>
+          <Box width="6">
+            <X className="aspect-square h-full w-full" />
+          </Box>
+        </button>
+      </Box>
     </Box>
   )
 }

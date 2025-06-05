@@ -29,7 +29,9 @@ type Story = StoryObj<StoryProps>
 export const Default: Story = {
   render: (props) => (
     <Alert {...props}>
-      <Paragraph size="lg">This is an alert message</Paragraph>
+      <Paragraph size="lg">
+        New features are available! Take a look around.
+      </Paragraph>
     </Alert>
   ),
   args: {
@@ -41,7 +43,7 @@ export const Default: Story = {
 export const Success: Story = {
   render: (props) => (
     <Alert {...props}>
-      <Paragraph size="lg">Operation completed successfully!</Paragraph>
+      <Paragraph size="lg">Your photo was uploaded successfully!</Paragraph>
     </Alert>
   ),
   args: {
@@ -54,7 +56,7 @@ export const Warning: Story = {
   render: (props) => (
     <Alert {...props}>
       <Paragraph size="lg">
-        Please review your changes before proceeding.
+        Image size is larger than recommended. It may slow down your preview.
       </Paragraph>
     </Alert>
   ),
@@ -68,12 +70,30 @@ export const Critical: Story = {
   render: (props) => (
     <Alert {...props}>
       <Paragraph size="lg">
-        An error occurred while processing your request.
+        Upload failed. Please try again or check your connection.
       </Paragraph>
     </Alert>
   ),
   args: {
     variant: "critical",
+    dismissible: true,
+  },
+}
+
+export const WithAction: Story = {
+  render: (props) => (
+    <Alert
+      {...props}
+      actionLabel="Review Now"
+      onAction={() => alert("Action clicked!")}
+    >
+      <Paragraph size="lg">
+        New features are available! Take a look around.
+      </Paragraph>
+    </Alert>
+  ),
+  args: {
+    variant: "info",
     dismissible: true,
   },
 }
