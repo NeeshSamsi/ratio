@@ -1174,9 +1174,9 @@
         }
       },
       "critical-secondary": {
+        "description": "",
         "type": "color",
-        "value": "#ffb4afff",
-        "blendMode": "normal",
+        "value": "{primitives.color.ruby-200}",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
             "collection": "design-tokens",

@@ -805,7 +805,7 @@ const MinHeight: Record<SpacingKey, string> = {
 
 const Background: Record<BackgroundKey, string> = {
   "critical": "bg-ruby-700",
-  "critical-secondary": "bg-#ffb4afff",
+  "critical-secondary": "bg-ruby-200",
   "critical-secondary-weak": "bg-ruby-100",
   "informational": "bg-sapphire-500",
   "informational-weak": "bg-sapphire-200",
@@ -841,7 +841,7 @@ const BackgroundActive: Record<BackgroundActiveKey, string> = {
 
 const BackgroundFocus: Record<BackgroundKey, string> = {
   "critical": "focus:bg-ruby-700",
-  "critical-secondary": "focus:bg-#ffb4afff",
+  "critical-secondary": "focus:bg-ruby-200",
   "critical-secondary-weak": "focus:bg-ruby-100",
   "informational": "focus:bg-sapphire-500",
   "informational-weak": "focus:bg-sapphire-200",
