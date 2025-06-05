@@ -11,7 +11,7 @@ const helpText = cva({
   base: "text-size-10",
   variants: {
     variant: {
-      info: TextColor.secondary,
+      info: TextColor.informational,
       success: TextColor.success,
       critical: TextColor.critical,
     },

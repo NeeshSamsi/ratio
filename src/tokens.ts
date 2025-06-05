@@ -1,27 +1,27 @@
 // Generated TypeScript definitions
 type SpacingKey = "px" | "0" | "0.5" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "12" | "14" | "16" | "20" | "24" | "28" | "32" | "36" | "40" | "44" | "48" | "52" | "56" | "60" | "64" | "72" | "80" | "96";
 
-type BackgroundKey = "critical" | "critical-secondary" | "critical-secondary-weak" | "informational" | "informational-weak" | "primary" | "primary-weak" | "success" | "success-secondary" | "success-secondary-weak" | "surface-1" | "surface-1-inverse" | "surface-2" | "surface-2-inverse" | "surface-3" | "warning" | "warning-secondary" | "warning-secondary-weak";
+type BackgroundKey = "critical" | "critical-secondary" | "critical-secondary-weak" | "informational" | "informational-weak" | "primary" | "success" | "success-secondary" | "success-secondary-weak" | "surface-1" | "surface-1-inverse" | "surface-2" | "surface-3" | "warning" | "warning-secondary";
 
 type BackgroundHoverKey = "critical" | "informational" | "primary" | "success" | "surface-1" | "surface-1-inverse" | "surface-2" | "surface-3";
 
 type BackgroundActiveKey = "critical" | "informational" | "primary" | "success";
 
-type BackgroundDisabledKey = "informational" | "primary";
+type BackgroundDisabledKey = ;
 
-type TextKey = "critical" | "critical-inverse" | "foreground" | "foreground-inverse" | "primary" | "primary-inverse" | "secondary" | "secondary-inverse" | "success" | "success-inverse" | "warning" | "warning-inverse";
+type TextKey = "critical" | "critical-inverse" | "foreground" | "foreground-inverse" | "informational" | "primary" | "secondary 2" | "success" | "success-inverse" | "text-informational" | "warning" | "warning-inverse";
 
-type TextHoverKey = "foreground" | "foreground-inverse" | "primary" | "primary-inverse";
+type TextHoverKey = "foreground" | "foreground-inverse" | "primary";
 
 type TextActiveKey = "primary";
 
-type TextDisabledKey = "primary";
+type TextDisabledKey = ;
 
 type TextVisitedKey = "primary";
 
-type BorderKey = "critical" | "critical-inverse" | "full" | "primary" | "primary-disabled" | "primary-focused" | "primary-inverse" | "secondary" | "secondary-inverse" | "secondary-weak" | "strong" | "strong-inverse" | "strong-inverse-full" | "success" | "success-inverse" | "warning" | "warning-inverse" | "weak" | "weak-inverse";
+type BorderKey = "critical" | "critical-inverse" | "full" | "primary" | "primary-focused" | "primary-inverse" | "secondary" | "secondary-weak" | "strong" | "strong-inverse" | "strong-inverse-full" | "success" | "success-inverse" | "warning" | "warning-inverse" | "weak";
 
-type BorderHoverKey = "full" | "primary" | "primary-inverse" | "strong-inverse-full";
+type BorderHoverKey = "full" | "primary" | "primary-inverse";
 
 type BorderActiveKey = "primary";
 
@@ -814,18 +814,15 @@ const Background: Record<BackgroundKey, string> = {
   "informational": "bg-sapphire-500",
   "informational-weak": "bg-sapphire-200",
   "primary": "bg-amber-500",
-  "primary-weak": "bg-amber-300",
   "success": "bg-emerald-700",
   "success-secondary": "bg-emerald-200",
   "success-secondary-weak": "bg-emerald-100",
   "surface-1": "bg-stone-950",
   "surface-1-inverse": "bg-stone-50",
   "surface-2": "bg-stone-800",
-  "surface-2-inverse": "bg-stone-200",
   "surface-3": "bg-stone-600",
-  "warning": "bg-amber-600",
-  "warning-secondary": "bg-amber-100",
-  "warning-secondary-weak": "bg-amber-50"
+  "warning": "bg-citrine-600",
+  "warning-secondary": "bg-citrine-200"
 };
 
 const BackgroundHover: Record<BackgroundHoverKey, string> = {
@@ -853,23 +850,19 @@ const BackgroundFocus: Record<BackgroundKey, string> = {
   "informational": "focus:bg-sapphire-500",
   "informational-weak": "focus:bg-sapphire-200",
   "primary": "focus:bg-amber-500",
-  "primary-weak": "focus:bg-amber-300",
   "success": "focus:bg-emerald-700",
   "success-secondary": "focus:bg-emerald-200",
   "success-secondary-weak": "focus:bg-emerald-100",
   "surface-1": "focus:bg-stone-950",
   "surface-1-inverse": "focus:bg-stone-50",
   "surface-2": "focus:bg-stone-800",
-  "surface-2-inverse": "focus:bg-stone-200",
   "surface-3": "focus:bg-stone-600",
-  "warning": "focus:bg-amber-600",
-  "warning-secondary": "focus:bg-amber-100",
-  "warning-secondary-weak": "focus:bg-amber-50"
+  "warning": "focus:bg-citrine-600",
+  "warning-secondary": "focus:bg-citrine-200"
 };
 
 const BackgroundDisabled: Record<BackgroundDisabledKey, string> = {
-  "informational": "disabled:bg-sapphire-200",
-  "primary": "disabled:bg-amber-100"
+
 };
 
 const Text: Record<TextKey, string> = {
@@ -877,21 +870,20 @@ const Text: Record<TextKey, string> = {
   "critical-inverse": "text-ruby-900",
   "foreground": "text-stone-50",
   "foreground-inverse": "text-stone-950",
+  "informational": "text-sapphire-400",
   "primary": "text-amber-500",
-  "primary-inverse": "text-amber-800",
-  "secondary": "text-sapphire-400",
-  "secondary-inverse": "text-sapphire-900",
+  "secondary 2": "text-sapphire-400",
   "success": "text-emerald-400",
   "success-inverse": "text-emerald-900",
-  "warning": "text-amber-600",
-  "warning-inverse": "text-amber-800"
+  "text-informational": "text-sapphire-900",
+  "warning": "text-citrine-400",
+  "warning-inverse": "text-citrine-800"
 };
 
 const TextHover: Record<TextHoverKey, string> = {
   "foreground": "hover:text-stone-300",
   "foreground-inverse": "hover:text-stone-600",
-  "primary": "hover:text-amber-700",
-  "primary-inverse": "hover:text-amber-600"
+  "primary": "hover:text-amber-700"
 };
 
 const TextActive: Record<TextActiveKey, string> = {
@@ -903,18 +895,18 @@ const TextFocus: Record<TextKey, string> = {
   "critical-inverse": "focus:text-ruby-900",
   "foreground": "focus:text-stone-50",
   "foreground-inverse": "focus:text-stone-950",
+  "informational": "focus:text-sapphire-400",
   "primary": "focus:text-amber-500",
-  "primary-inverse": "focus:text-amber-800",
-  "secondary": "focus:text-sapphire-400",
-  "secondary-inverse": "focus:text-sapphire-900",
+  "secondary 2": "focus:text-sapphire-400",
   "success": "focus:text-emerald-400",
   "success-inverse": "focus:text-emerald-900",
-  "warning": "focus:text-amber-600",
-  "warning-inverse": "focus:text-amber-800"
+  "text-informational": "focus:text-sapphire-900",
+  "warning": "focus:text-citrine-400",
+  "warning-inverse": "focus:text-citrine-800"
 };
 
 const TextDisabled: Record<TextDisabledKey, string> = {
-  "primary": "disabled:text-amber-800"
+
 };
 
 const TextVisited: Record<TextVisitedKey, string> = {
@@ -926,28 +918,24 @@ const Border: Record<BorderKey, string> = {
   "critical-inverse": "border-ruby-900",
   "full": "border-stone-50",
   "primary": "border-amber-500",
-  "primary-disabled": "border-amber-800",
   "primary-focused": "border-amber-200",
   "primary-inverse": "border-amber-800",
   "secondary": "border-sapphire-600",
-  "secondary-inverse": "border-sapphire-800",
   "secondary-weak": "border-sapphire-300",
   "strong": "border-stone-200",
   "strong-inverse": "border-stone-600",
   "strong-inverse-full": "border-stone-950",
   "success": "border-emerald-600",
   "success-inverse": "border-emerald-900",
-  "warning": "border-amber-600",
-  "warning-inverse": "border-amber-800",
-  "weak": "border-stone-500",
-  "weak-inverse": "border-stone-300"
+  "warning": "border-citrine-500",
+  "warning-inverse": "border-citrine-700",
+  "weak": "border-stone-500"
 };
 
 const BorderHover: Record<BorderHoverKey, string> = {
   "full": "hover:border-stone-300",
   "primary": "hover:border-amber-700",
-  "primary-inverse": "hover:border-amber-600",
-  "strong-inverse-full": "hover:border-stone-600"
+  "primary-inverse": "hover:border-amber-600"
 };
 
 const BorderActive: Record<BorderActiveKey, string> = {

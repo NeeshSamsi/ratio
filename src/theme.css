@@ -56,6 +56,15 @@
 	--color-sapphire-900: #0b118aff;
 	--color-amber-950: #482300ff;
 	--color-sapphire-950: #070850ff;
+	--color-citrine-600: #e67a00ff;
+	--color-citrine-100: #fff3e5ff;
+	--color-citrine-500: #ff941aff;
+	--color-citrine-400: #ff941aff;
+	--color-citrine-300: #ffc380ff;
+	--color-citrine-200: #ffdbb3ff;
+	--color-citrine-700: #b35f00ff;
+	--color-citrine-800: #804400ff;
+	--color-citrine-900: #1a0e00ff;
 
 	--text-*: initial;
 	--text-size-10: 0.75rem;
