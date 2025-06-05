@@ -39,6 +39,7 @@ export default function Anchor({
   return (
     <a
       href={link}
+      target={external ? "_blank" : "_self"}
       // cn() aka twMerge mixes up text-clr and text-size classes & overrides theme
       className={clsx(
         TextColor.primary,
