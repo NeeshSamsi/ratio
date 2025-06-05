@@ -8,6 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
 
 type StoryProps = ComponentProps<typeof DropdownMenu>
 
@@ -22,7 +23,9 @@ type Story = StoryObj<StoryProps>
 export const Default: Story = {
   render: (props) => (
     <DropdownMenu {...props}>
-      <DropdownMenuTrigger>Open Menu</DropdownMenuTrigger>
+      <DropdownMenuTrigger>
+        <Button variant="secondary">Open Menu</Button>
+      </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
