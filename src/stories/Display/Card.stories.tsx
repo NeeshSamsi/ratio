@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { Card, CardTitle, CardContent } from "./card"
+import { Card, CardTitle, CardContent } from "../../components/Card/card"
 import { Button } from "@/components/ui/button"
 import Paragraph from "@/components/Paragraph"
 
