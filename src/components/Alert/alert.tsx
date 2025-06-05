@@ -36,6 +36,7 @@ export default function Alert({ variant, children }: AlertProps) {
       alignItems="start"
       gap="4"
       className={alert({ variant })}
+      role="alert"
     >
       <Box width="8">{VariantIconMap[variant]}</Box>
       <div className="flex-auto">{children}</div>
