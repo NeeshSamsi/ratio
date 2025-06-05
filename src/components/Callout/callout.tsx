@@ -2,7 +2,7 @@ import type { PropsWithChildren } from "react"
 import { cn } from "@/lib/utils"
 import { cva } from "cva"
 import { VariantIconMap, type Variants } from "@/components/types"
-import { Tokens, type BackgroundKey } from "@/tokens"
+import { Tokens, type BackgroundKey, type TextKey } from "@/tokens"
 import Box from "@/components//Box"
 import Paragraph from "@/components//Paragraph"
 
@@ -16,15 +16,22 @@ type CalloutProps = PropsWithChildren & {
 const ContentBgMap: Record<Variants, BackgroundKey> = {
   info: "informational-weak",
   success: "success-secondary-weak",
-  warning: "warning-secondary-weak",
+  warning: "warning-secondary",
   critical: "critical-secondary-weak",
+}
+
+const ContentTextMap: Record<Variants, TextKey> = {
+  info: "text-informational",
+  success: "success-inverse",
+  warning: "warning-inverse",
+  critical: "critical-inverse",
 }
 
 const callout = cva({
   base: ``,
   variants: {
     variant: {
-      info: `${Background.informational} ${TextColor.foreground} ${Border["secondary-weak"]}`,
+      info: `${Background.informational} ${TextColor.foreground} ${Border["informational-weak"]}`,
       success: `${Background["success-secondary"]} ${TextColor["success-inverse"]} ${Border["success-inverse"]}`,
       warning: `${Background["warning-secondary"]} ${TextColor["warning-inverse"]} ${Border["primary-inverse"]}`,
       critical: `${Background["critical-secondary"]} ${TextColor["critical-inverse"]} ${Border["critical-inverse"]}`,
@@ -44,7 +51,11 @@ export default function Callout({ variant, title, children }: CalloutProps) {
         </Paragraph>
       </Box>
       {children && (
-        <Box padding="4" background={ContentBgMap[variant]}>
+        <Box
+          padding="4"
+          background={ContentBgMap[variant]}
+          className={ContentTextMap[variant]}
+        >
           {children}
         </Box>
       )}

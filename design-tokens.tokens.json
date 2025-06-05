@@ -1174,9 +1174,9 @@
         }
       },
       "critical-secondary": {
-        "description": "",
         "type": "color",
-        "value": "{primitives.color.ruby-200}",
+        "value": "#ffb4afff",
+        "blendMode": "normal",
         "extensions": {
           "org.lukasoppermann.figmaDesignTokens": {
             "collection": "design-tokens",
@@ -2383,7 +2383,7 @@
           }
         }
       },
-      "secondary": {
+      "informational": {
         "description": "",
         "type": "color",
         "value": "{primitives.color.sapphire-600}",
@@ -2533,7 +2533,7 @@
           }
         }
       },
-      "secondary-weak": {
+      "informational-weak": {
         "description": "",
         "type": "color",
         "value": "{primitives.color.sapphire-300}",
@@ -2604,6 +2604,21 @@
               "STROKE_COLOR"
             ],
             "variableId": "VariableID:1381:1493",
+            "exportKey": "variables"
+          }
+        }
+      },
+      "foreground": {
+        "description": "",
+        "type": "color",
+        "value": "{primitives.color.stone-50}",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "collection": "design-tokens",
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "variableId": "VariableID:1451:3820",
             "exportKey": "variables"
           }
         }
@@ -2801,7 +2816,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "collection": "design-tokens",
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_FLOAT"
             ],
             "variableId": "VariableID:1263:3229",
             "exportKey": "variables"
@@ -2815,7 +2830,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "collection": "design-tokens",
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_FLOAT"
             ],
             "variableId": "VariableID:1263:3234",
             "exportKey": "variables"
@@ -2831,7 +2846,8 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "collection": "design-tokens",
             "scopes": [
-              "ALL_SCOPES"
+              "WIDTH_HEIGHT",
+              "FONT_VARIATIONS"
             ],
             "variableId": "VariableID:1263:3235",
             "exportKey": "variables"
@@ -2845,7 +2861,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "collection": "design-tokens",
             "scopes": [
-              "ALL_SCOPES"
+              "WIDTH_HEIGHT"
             ],
             "variableId": "VariableID:1263:3239",
             "exportKey": "variables"
@@ -2859,7 +2875,7 @@
           "org.lukasoppermann.figmaDesignTokens": {
             "collection": "design-tokens",
             "scopes": [
-              "ALL_SCOPES"
+              "WIDTH_HEIGHT"
             ],
             "variableId": "VariableID:1263:3240",
             "exportKey": "variables"

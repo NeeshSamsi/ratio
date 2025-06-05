@@ -15,7 +15,7 @@ type TextActiveKey = "primary";
 
 type TextVisitedKey = "primary";
 
-type BorderKey = "critical" | "critical-inverse" | "full" | "primary" | "primary-focused" | "primary-inverse" | "secondary" | "secondary-weak" | "strong" | "strong-inverse" | "strong-inverse-full" | "success" | "success-inverse" | "warning" | "warning-inverse" | "weak";
+type BorderKey = "critical" | "critical-inverse" | "foreground" | "full" | "informational" | "informational-weak" | "primary" | "primary-focused" | "primary-inverse" | "strong" | "strong-inverse" | "strong-inverse-full" | "success" | "success-inverse" | "warning" | "warning-inverse" | "weak";
 
 type BorderHoverKey = "full" | "primary" | "primary-inverse";
 
@@ -805,7 +805,7 @@ const MinHeight: Record<SpacingKey, string> = {
 
 const Background: Record<BackgroundKey, string> = {
   "critical": "bg-ruby-700",
-  "critical-secondary": "bg-ruby-200",
+  "critical-secondary": "bg-#ffb4afff",
   "critical-secondary-weak": "bg-ruby-100",
   "informational": "bg-sapphire-500",
   "informational-weak": "bg-sapphire-200",
@@ -841,7 +841,7 @@ const BackgroundActive: Record<BackgroundActiveKey, string> = {
 
 const BackgroundFocus: Record<BackgroundKey, string> = {
   "critical": "focus:bg-ruby-700",
-  "critical-secondary": "focus:bg-ruby-200",
+  "critical-secondary": "focus:bg-#ffb4afff",
   "critical-secondary-weak": "focus:bg-ruby-100",
   "informational": "focus:bg-sapphire-500",
   "informational-weak": "focus:bg-sapphire-200",
@@ -904,12 +904,13 @@ const TextVisited: Record<TextVisitedKey, string> = {
 const Border: Record<BorderKey, string> = {
   "critical": "border-ruby-600",
   "critical-inverse": "border-ruby-900",
+  "foreground": "border-stone-50",
   "full": "border-stone-50",
+  "informational": "border-sapphire-600",
+  "informational-weak": "border-sapphire-300",
   "primary": "border-amber-500",
   "primary-focused": "border-amber-200",
   "primary-inverse": "border-amber-800",
-  "secondary": "border-sapphire-600",
-  "secondary-weak": "border-sapphire-300",
   "strong": "border-stone-200",
   "strong-inverse": "border-stone-600",
   "strong-inverse-full": "border-stone-950",

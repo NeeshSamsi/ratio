@@ -16,7 +16,7 @@ const alert = cva({
   base: `rounded-md border`,
   variants: {
     variant: {
-      info: `${Background.informational} ${Text.foreground} ${Border["secondary-weak"]}`,
+      info: `${Background.informational} ${Text.foreground} ${Border["informational-weak"]}`,
       success: `${Background["success-secondary"]} ${Text["success-inverse"]} ${Border["success-inverse"]}`,
       warning: `${Background["warning-secondary"]} ${Text["warning-inverse"]} ${Border["primary-inverse"]}`,
       critical: `${Background["critical-secondary"]} ${Text["critical-inverse"]} ${Border["critical-inverse"]}`,
