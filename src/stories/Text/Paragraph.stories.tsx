@@ -28,6 +28,17 @@ export default {
       },
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Paragraphs support longer-form content and communication. Designed for readability and flow, they maintain visual calm while delivering information with clarity and ease.
+
+![Dos and Donts](/images/docs/Paragraph.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 
