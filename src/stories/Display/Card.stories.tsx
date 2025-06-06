@@ -42,13 +42,14 @@ export const Basic: Story = {
     children: (
       <>
         <CardTitle level="h2" displayLevel="h4">
-          Basic Card
+          Make It Yours
         </CardTitle>
         <CardContent>
           <Paragraph size="base" marginBottom="0">
-            This is a basic card with a title and content.
+            Refine contrast, balance color, and highlight your signature
+            style—all in one place.
           </Paragraph>
-          <Button variant="secondary">Learn More</Button>
+          <Button variant="secondary">Refine your look</Button>
         </CardContent>
       </>
     ),

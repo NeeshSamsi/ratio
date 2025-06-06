@@ -5,6 +5,7 @@ import "../src/index.css"
 
 import React from "react"
 import ThemeProvider from "../src/components/ThemeProvider"
+import Box from "../src/components/Box"
 
 const preview: Preview = {
   initialGlobals: {
@@ -24,9 +25,11 @@ const preview: Preview = {
       storySort: {
         order: [
           "Welcome",
+          "VSCO",
           "Foundations",
           "Voice and Tone",
           "Text",
+          "Tokens",
           [
             "Text/Heading",
             "Text/Paragraph",
@@ -70,7 +73,9 @@ const preview: Preview = {
         components: { Story, ThemeProvider },
         template: (
           <ThemeProvider>
-            <Story />
+            <Box padding="6">
+              <Story />
+            </Box>
           </ThemeProvider>
         ),
       }),
@@ -85,7 +90,9 @@ const preview: Preview = {
   },
   decorators: [
     (Story: Story, context: StoryContext) => (
-      <ThemeProvider>{Story(context.args, context)}</ThemeProvider>
+      <ThemeProvider>
+        <Box padding="6">{Story(context.args, context)}</Box>
+      </ThemeProvider>
     ),
   ],
 }

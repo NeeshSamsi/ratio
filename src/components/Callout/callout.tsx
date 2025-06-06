@@ -54,7 +54,7 @@ export default function Callout({ variant, title, children }: CalloutProps) {
         <Box
           padding="4"
           background={ContentBgMap[variant]}
-          className={ContentTextMap[variant]}
+          className={TextColor[ContentTextMap[variant]]}
         >
           {children}
         </Box>
