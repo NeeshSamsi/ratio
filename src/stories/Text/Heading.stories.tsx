@@ -34,6 +34,17 @@ export default {
       },
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Headings provide structure and hierarchy, helping users navigate content quickly and intuitively. Use them to guide attention and organize information with clarity and intention.
+
+![Dos and Donts](/images/docs/Heading.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

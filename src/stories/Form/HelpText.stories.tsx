@@ -20,6 +20,17 @@ export default {
       },
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Help text offers supportive, non-intrusive guidance. It provides clarity without distraction, empowering users to move forward with confidence.
+
+![Dos and Donts](/images/docs/HelpText.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

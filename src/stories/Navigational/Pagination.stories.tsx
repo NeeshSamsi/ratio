@@ -15,6 +15,17 @@ type StoryProps = ComponentProps<typeof Pagination>
 export default {
   component: Pagination,
   title: "Navigational/Pagination",
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Pagination divides content into manageable sections, helping users navigate large data sets or long lists with ease. Use it to improve performance, reduce overwhelm, and maintain a clear, focused user experience.
+
+![Dos and Donts](/images/docs/Pagination.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

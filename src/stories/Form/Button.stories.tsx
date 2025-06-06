@@ -30,6 +30,17 @@ export default {
       control: "boolean",
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Buttons drive action. Their design balances clarity, accessibility, and tone — supporting both utility and expression within the interface.
+
+![Dos and Donts](/images/docs/Button.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

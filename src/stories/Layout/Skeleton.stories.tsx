@@ -21,6 +21,15 @@ export default {
       description: "Additional CSS classes",
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Skeleton components act as visual placeholders while content loads. They reinforce structure and maintain visual continuity during transitions.
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

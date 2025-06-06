@@ -28,6 +28,17 @@ export default {
       options: Object.keys(Tokens.MarginBottom),
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Lists offer a clean, scannable way to present grouped content. Whether ordered or unordered, they improve comprehension by adding rhythm and structure to dense information.
+
+![Dos and Donts](/images/docs/List.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

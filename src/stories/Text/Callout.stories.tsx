@@ -23,6 +23,20 @@ export default {
       control: {
         type: "text",
       },
+      table: {
+        type: { summary: "ReactNode" },
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Callouts highlight key information or states, such as warnings, success messages, or tips. They bring emphasis without overpowering the surrounding design.
+
+![Dos and Donts](/images/docs/Callout.png)
+`,
+      },
     },
   },
   tags: ["autodocs"],

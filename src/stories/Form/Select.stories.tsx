@@ -22,6 +22,17 @@ export default {
       control: "text",
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+ComboBoxes combine input and selection, allowing users to choose from a list or enter custom values. Use them to streamline form interactions, especially when dealing with large or dynamic datasets.
+
+![Dos and Donts](/images/docs/Combobox.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

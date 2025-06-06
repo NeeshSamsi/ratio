@@ -7,6 +7,17 @@ type StoryProps = ComponentProps<typeof Tabs>
 export default {
   component: Tabs,
   title: "Navigational/Tabs",
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Tabs organize content into distinct views, allowing users to switch between related sections without losing context. Use them to streamline navigation, minimize scrolling, and keep interfaces clean and focused.
+
+![Dos and Donts](/images/docs/Tabs.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

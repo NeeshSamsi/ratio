@@ -30,6 +30,17 @@ const meta: Meta<typeof Card> = {
       },
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Cards group related content and actions into structured, touch-friendly containers. They help organize interfaces with flexibility and visual harmony.
+
+![Dos and Donts](/images/docs/Card.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 }
 

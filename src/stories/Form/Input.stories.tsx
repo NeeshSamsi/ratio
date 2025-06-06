@@ -26,6 +26,17 @@ export default {
       control: "boolean",
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Inputs allow users to enter and modify information, forming the foundation of user interaction. Use them to capture data clearly and efficiently, ensuring accessibility, consistency, and ease of use across all form elements.
+
+![Dos and Donts](/images/docs/Input.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

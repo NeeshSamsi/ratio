@@ -41,6 +41,17 @@ export default {
       },
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Anchors enable seamless navigation across content and surfaces. Styled with subtlety and clarity, they promote interaction without overwhelming the visual language.
+
+![Dos and Donts](/images/docs/Anchor.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

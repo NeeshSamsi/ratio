@@ -35,6 +35,17 @@ export default {
       },
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Badges communicate quick status or counts with minimal visual weight. They draw subtle attention without interrupting the flow of surrounding content
+
+![Dos and Donts](/images/docs/Badge.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

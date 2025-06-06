@@ -15,6 +15,17 @@ type StoryProps = ComponentProps<typeof DropdownMenu>
 export default {
   component: DropdownMenu,
   title: "Navigational/DropdownMenu",
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Dropdown menus offer quick access to relevant actions based on a user’s selection or interaction. Use them to streamline workflows, reduce clutter, and present secondary options without overwhelming the main interface.
+
+![Dos and Donts](/images/docs/Dropdown.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

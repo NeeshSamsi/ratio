@@ -29,6 +29,17 @@ export default {
       options: ["surface-1", "surface-2"],
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Breadcrumbs enhance navigation by showing users their location within a site’s hierarchy. Use them to provide context, reduce confusion, and enable effortless backtracking through multi-level content.
+
+![Dos and Donts](/images/docs/Breadcrumb.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 

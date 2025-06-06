@@ -21,6 +21,17 @@ export default {
       },
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Alerts communicate important messages that require user attention or action. Use them to convey status, warn of potential issues, or confirm outcomes with clarity, urgency, and appropriate visual cues.
+
+![Dos and Donts](/images/docs/Alert.png)
+`,
+      },
+    },
+  },
   tags: ["autodocs"],
 } satisfies Meta<StoryProps>
 
