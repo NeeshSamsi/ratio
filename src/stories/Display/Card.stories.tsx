@@ -36,6 +36,7 @@ const meta: Meta<typeof Card> = {
         component: `
 Cards group related content and actions into structured, touch-friendly containers. They help organize interfaces with flexibility and visual harmony.
 
+![Dos and Donts](/images/docs/CardComponent.png)
 ![Dos and Donts](/images/docs/Card.png)
 `,
       },

@@ -11,16 +11,8 @@ type CardProps = {
   orientation?: "horizontal" | "vertical"
 } & PropsWithChildren
 
-export function CardNode({
-  background,
-  orientation = "vertical",
-  children,
-}: CardProps) {
-  const { image, title, content, setOrientation } = useCardContext()
-
-  useEffect(() => {
-    setOrientation(orientation)
-  }, [orientation, setOrientation])
+export function CardNode({ background, orientation, children }: CardProps) {
+  const { image, title, content } = useCardContext()
 
   return (
     <Box
@@ -47,18 +39,18 @@ type CardImageProps = {
 }
 
 export function CardImage({ src, alt }: CardImageProps) {
-  const { orientation, setImage } = useCardContext()
-
+  const { setImage } = useCardContext()
   useEffect(() => {
     setImage(
       <img
         src={src}
         alt={alt}
         // Somehow set aspect-ratio
-        className={`object-cover ${orientation === "horizontal" ? "w-2/5" : "w-full"}`}
+        className={`object-cover`}
+        // ${orientation === "horizontal" ? "w-2/5" : "w-full"}
       />,
     )
-  }, [orientation, setImage, src, alt])
+  }, [setImage, src, alt])
 
   return null
 }
