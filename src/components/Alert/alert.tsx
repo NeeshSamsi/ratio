@@ -54,7 +54,7 @@ export default function Alert({
             {actionLabel}
           </Button>
         )}
-        <button onClick={() => setShow(false)}>
+        <button aria-label="Dismiss alert" onClick={() => setShow(false)}>
           <Box width="6">
             <X className="aspect-square h-full w-full" />
           </Box>
